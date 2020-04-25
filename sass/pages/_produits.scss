@@ -11,7 +11,14 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    width: 50%;
+    flex-direction: column;
+    align-items: center;
+
+    
+    @include desktop{
+      width: 50%;
+      flex-direction: row;
+    }
   }
 
   img{
@@ -32,10 +39,15 @@ li:after{
 
 #description{
   color: $colour-accent;
+  text-align: center;
 }
 
 #prix{
   color: $colour-secondary;
+}
+
+#produit_choisit{
+  max-width: 100%;
 }
 
 }
