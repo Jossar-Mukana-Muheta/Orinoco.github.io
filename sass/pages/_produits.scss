@@ -11,6 +11,7 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    width: 50%;
   }
 
   img{
@@ -29,6 +30,12 @@ li:after{
   color: $colour-accent;
 }
 
+#description{
+  color: $colour-accent;
+}
 
+#prix{
+  color: $colour-secondary;
+}
 
 }
