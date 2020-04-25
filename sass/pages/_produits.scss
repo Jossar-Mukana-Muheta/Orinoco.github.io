@@ -1,0 +1,27 @@
+.produits_page{
+  display: flex;
+  justify-content:space-around;
+  flex-direction: column;
+
+  @include desktop{
+    flex-direction: row;
+  }
+
+  &__option{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  img{
+    height: 250px;
+    padding: 5px;
+    transform:scale(1);
+    transition: all 700ms ease-in-out;
+    @include desktop{
+      min-height: 350px !important;
+    }
+
+}
+
+}
