@@ -12,6 +12,7 @@ document.addEventListener('DOMContentLoaded', function () {
     preventScrolling: true
   })
 })
+
 window.addEventListener('load', (event) => {
   /* Récuperer la liste des nom de produits */
   getProduit = () => {
@@ -23,39 +24,28 @@ window.addEventListener('load', (event) => {
         for (let i = 0; i < response.length; i++) {
           let newElt = document.createElement('li')
           let newLink = document.createElement('a')
-          list.appendChild(newLink).setAttribute('href', 'produits.html')
+          list.appendChild(newLink)
           newLink.appendChild(newElt).innerHTML = (response[i].name)
         }
+      } else {
+        console.error()
       }
-      console.log('Lancer le serveur node')
     }
     request.open('GET', 'http://localhost:3000/api/cameras')
     request.send()
   }
   getProduit()
+});
 
 
 
 
-  /* Récuperer image des produit produits */
-  getProduitImage = () => {
 
-    let image = document.getElementById('produits_page__option')
-    let request = new XMLHttpRequest()
-    request.onreadystatechange = function () {
-      if (this.readyState == XMLHttpRequest.DONE && this.status == 200) {
-        let response = JSON.parse(this.responseText)
-        for (let i = 0; i < response.length; i++) {
-          let newSource = document.createElement('img')
-          image.appendChild(newSource).setAttribute('src', response[i].imageUrl)
-          console.log(response[i].imageUrl)
-        }
-      }
-      console.log('Lancer le serveur node')
-    }
-    request.open('GET', 'http://localhost:3000/api/cameras')
-    request.send()
-  }
+getImageSelected = () => {
+  let produitChoisitImg = document.getElementById('produit_choisit')
+  let description = document.getElementById('description')
+  let prix = document.getElementById('prix')
+  
+  
 
-  getProduitImage()
-})
+}

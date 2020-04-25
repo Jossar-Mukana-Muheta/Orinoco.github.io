@@ -24,4 +24,11 @@
 
 }
 
+li:after{
+  content: " + ";
+  color: $colour-accent;
+}
+
+
+
 }

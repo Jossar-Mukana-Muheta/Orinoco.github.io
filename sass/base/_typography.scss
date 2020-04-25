@@ -19,7 +19,7 @@ h1 {
     
 h2{
     font-size: 1.56rem !important; 
-    color: $colour-secondary;
+    color: $colour-accent;
     font-weight: 600 !important;
 
     @include desktop{
@@ -40,4 +40,10 @@ button {
     font-weight: 900;
     font-style: italic;
     font-size: 2.75rem;
+}
+
+a:hover{
+    color: $colour-secondary;
+    cursor: pointer;
+    font-weight: bold;
 }
