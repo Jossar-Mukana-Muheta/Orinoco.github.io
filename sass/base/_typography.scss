@@ -10,6 +10,7 @@ h1 {
     font-weight: 900;
     font-size: 2.2rem !important;
     font-style: italic;
+    color: $colour-secondary;
 
     @include desktop{
         font-size: 4.2rem !important;

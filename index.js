@@ -22,27 +22,42 @@ window.addEventListener('load', (event) => {
       if (this.readyState == XMLHttpRequest.DONE && this.status == 200) {
         let response = JSON.parse(this.responseText)
         for (let i = 0; i < response.length; i++) {
-          let newElt = document.createElement('li')
-          let newLink = document.createElement('a')
-          list.appendChild(newLink).setAttribute('id', [i])
-          newLink.appendChild(newElt).innerHTML = (response[i].name)
+          let presentationProduit = document.getElementById('presentation_produit')
 
-          newLink.addEventListener('click', function(e){
+          /* Création div */
+          let newElt = document.createElement('div')
+          presentationProduit.appendChild(newElt)
+          newElt.setAttribute('id', 'produits_page__option')
+
+          /* Création balise image */
+          let newImg = document.createElement('img')
+          newElt.appendChild(newImg)
+          newImg.setAttribute('id', 'image_produit')
+          newImg.setAttribute('src', response[i].imageUrl)
+
+          /* Création balise p description du produit */
+          let newDescription = document.createElement('p')
+          newElt.appendChild(newDescription)
+          newDescription.setAttribute('id', 'description')
+          newDescription.innerHTML = response[i].description
+
+          /* Création balise p affichage du prix */
+          let newPrice = document.createElement('p')
+          newElt.appendChild(newPrice)
+          newPrice.setAttribute('id', 'prix')
+          newPrice.innerHTML = response[i].price + " Euros"
+
+          /* newLink.addEventListener('click', function(e){
             let produitChoisitImg = document.getElementById('produit_choisit')
             let description = document.getElementById('description')
             let prix = document.getElementById('prix')
-            
+
             description.innerHTML = response[i].description;
             produitChoisitImg.setAttribute("src", response[i].imageUrl)
             prix.innerHTML = response[i].price + " Euros"
-  
-          });
-  
-        }
-        
 
-        
-        
+          }); */
+        }
       } else {
         console.error()
       }
@@ -51,6 +66,4 @@ window.addEventListener('load', (event) => {
     request.send()
   }
   getProduit()
-});
-
-
+})

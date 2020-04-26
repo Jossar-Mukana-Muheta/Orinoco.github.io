@@ -27,6 +27,7 @@ h1 {
   font-weight: 900;
   font-size: 2.2rem !important;
   font-style: italic;
+  color: #D9B44A;
 }
 @media screen and (min-width: 601px) {
   h1 {
@@ -141,30 +142,53 @@ article {
   text-align: center;
   margin-top: 20px;
   position: relative;
+  display: flex !important;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: center;
 }
-article span {
-  position: absolute;
-  left: 120px;
-  bottom: 160px;
-  color: #D9B44A;
-  font-weight: bold;
-  z-index: -2;
+article #produits_page__option {
+  margin: 14px;
+  border: solid 1px rgba(79, 100, 87, 0.06);
+  background-color: rgba(172, 208, 192, 0.12);
+}
+@media screen and (min-width: 601px) {
+  article #produits_page__option {
+    width: 40%;
+  }
 }
 article img {
-  height: 250px;
+  height: 150px;
+  width: inherit;
   padding: 5px;
+  scale: 1;
   transform: scale(1);
   transition: all 700ms ease-in-out;
   z-index: 3;
+  margin-top: 10px;
 }
 @media screen and (min-width: 601px) {
   article img {
-    min-height: 350px !important;
+    height: inherit;
   }
 }
 article img:hover {
-  transform: scale(1.1);
-  opacity: 0.1;
+  transform: scale(1.5);
+  opacity: 0.8;
+}
+article p {
+  font-size: 13px;
+  font-weight: bold;
+}
+article #prix {
+  color: #D9B44A;
+  font-style: italic;
+}
+article a {
+  font-size: 13px;
+}
+article .card-image {
+  overflow: hidden;
 }
 article .presentation {
   color: #4F6457;
@@ -227,6 +251,19 @@ aside {
 }
 .produits_page #produit_choisit {
   max-width: 100%;
+}
+.produits_page label {
+  font-size: 1rem;
+  padding-right: 10px;
+  color: black !important;
+}
+.produits_page select {
+  font-size: 0.9rem;
+  padding: 2px 5px;
+  color: black !important;
+}
+.produits_page .produits {
+  text-align: center;
 }
 
 /*# sourceMappingURL=style.css.map */
