@@ -1,3 +1,4 @@
+
 document.addEventListener('DOMContentLoaded', function () {
   var elems = document.querySelectorAll('.sidenav')
   var instances = M.Sidenav.init(elems, {
@@ -14,56 +15,83 @@ document.addEventListener('DOMContentLoaded', function () {
 })
 
 window.addEventListener('load', (event) => {
-  /* Récuperer la liste des nom de produits au chargement de la page  */
-  getProduit = () => {
-    let list = document.getElementById('list_produits')
-    let request = new XMLHttpRequest()
-    request.onreadystatechange = function () {
-      if (this.readyState == XMLHttpRequest.DONE && this.status == 200) {
-        let response = JSON.parse(this.responseText)
-        for (let i = 0; i < response.length; i++) {
-          let presentationProduit = document.getElementById('presentation_produit')
 
-          /* Création div */
-          let newElt = document.createElement('div')
-          presentationProduit.appendChild(newElt)
-          newElt.setAttribute('id', 'produits_page__option')
+  let presentationProduit = document.getElementById('presentation_produit')
 
-          /* Création balise image */
-          let newImg = document.createElement('img')
-          newElt.appendChild(newImg)
-          newImg.setAttribute('id', 'image_produit')
-          newImg.setAttribute('src', response[i].imageUrl)
+  let newLoaders = document.createElement('div')
+  presentationProduit.appendChild(newLoaders)
+  newLoaders.setAttribute('class', 'lds-hourglass')
 
-          /* Création balise p description du produit */
-          let newDescription = document.createElement('p')
-          newElt.appendChild(newDescription)
-          newDescription.setAttribute('id', 'description')
-          newDescription.innerHTML = response[i].description
+  /* */
+  const getInformation = () => {
+    return new Promise((resolve, reject) => {
+      const xhr = new XMLHttpRequest()
+      xhr.open('GET', 'http://localhost:3000/api/cameras')
+      xhr.onload = () => resolve(JSON.parse(xhr.responseText))
+      xhr.onerror = () => reject()
+      xhr.send()
+    })
 
-          /* Création balise p affichage du prix */
-          let newPrice = document.createElement('p')
-          newElt.appendChild(newPrice)
-          newPrice.setAttribute('id', 'prix')
-          newPrice.innerHTML = response[i].price + " Euros"
+  }
 
-          /* newLink.addEventListener('click', function(e){
-            let produitChoisitImg = document.getElementById('produit_choisit')
-            let description = document.getElementById('description')
-            let prix = document.getElementById('prix')
+  getInformation().then((responseText) => {
+    presentationProduit.removeChild(newLoaders)
+    getProduit = (responseText) => {
+      let list = document.getElementById('list_produits')
+      for (let i = 0; i < responseText.length; i++) {
+        let presentationProduit = document.getElementById('presentation_produit')
 
-            description.innerHTML = response[i].description;
-            produitChoisitImg.setAttribute("src", response[i].imageUrl)
-            prix.innerHTML = response[i].price + " Euros"
+        /* Création div */
+        let newElt = document.createElement('div')
+        presentationProduit.appendChild(newElt)
+        newElt.setAttribute('id', 'produits_page__option')
 
-          }); */
-        }
-      } else {
-        console.error()
+        /* Création balise image */
+        let newImg = document.createElement('img')
+        newElt.appendChild(newImg)
+        newImg.setAttribute('id', 'image_produit')
+        newImg.setAttribute('src', responseText[i].imageUrl)
+
+        /* Création balise p description du produit */
+        let newDescription = document.createElement('p')
+        newElt.appendChild(newDescription)
+        newDescription.setAttribute('id', 'description')
+        newDescription.innerHTML = responseText[i].description
+
+        /* Création balise p affichage du prix */
+        let newPrice = document.createElement('p')
+        newElt.appendChild(newPrice)
+        newPrice.setAttribute('id', 'prix')
+        newPrice.innerHTML = responseText[i].price + ' Euros'
       }
     }
-    request.open('GET', 'http://localhost:3000/api/cameras')
-    request.send()
-  }
-  getProduit()
+
+    getProduit(responseText)
+  })
+
+  getInformation().catch(() => {
+    
+    presentationProduit.removeChild(newLoaders)
+    let newElt = document.createElement('div')
+    presentationProduit.appendChild(newElt)
+    newElt.setAttribute('id', 'produits_page__option')
+
+    /* Création balise image */
+    let newImg = document.createElement('img')
+    newElt.appendChild(newImg)
+    newImg.setAttribute('id', 'image_produit')
+    newImg.setAttribute('src', 'images/errorserver.jpg')
+
+    /* Création balise p description du produit */
+    let newDescription = document.createElement('p')
+    newElt.appendChild(newDescription)
+    newDescription.setAttribute('id', 'description')
+    newDescription.innerHTML = "une erreur c'est produite"
+
+    /* Création balise p affichage du prix */
+    let newPrice = document.createElement('a')
+    newElt.appendChild(newPrice)
+    newPrice.setAttribute('href', 'index.html')
+    newPrice.innerHTML = 'clickez pour recharger'
+  })
 })
