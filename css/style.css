@@ -44,6 +44,7 @@ html {
 }
 
 body {
+  position: absolute;
   display: grid;
   min-height: 100vh;
 }
@@ -126,6 +127,9 @@ footer {
   flex-direction: column;
   align-items: center;
   margin-top: 50px;
+  position: relative;
+  bottom: 0;
+  width: 100%;
 }
 @media screen and (min-width: 601px) {
   footer {
@@ -228,6 +232,14 @@ article .presentation {
   margin-block-start: 0em;
   font-size: 16px;
 }
+article #linkTitle {
+  font-size: 20px;
+}
+@media screen and (min-width: 601px) {
+  article #linkTitle {
+    font-size: 30px !important;
+  }
+}
 
 aside {
   min-width: 30%;
@@ -239,7 +251,7 @@ aside {
 
 .produits_page {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   flex-direction: column;
 }
 @media screen and (min-width: 601px) {
@@ -247,56 +259,20 @@ aside {
     flex-direction: row;
   }
 }
-.produits_page__option {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  flex-direction: column;
-  align-items: center;
-}
 @media screen and (min-width: 601px) {
-  .produits_page__option {
-    width: 50%;
-    flex-direction: row;
+  .produits_page #presentation_produit {
+    width: 25%;
+    display: flex;
+    flex-direction: column;
   }
 }
-.produits_page img {
-  height: 250px;
-  padding: 5px;
-  transform: scale(1);
-  transition: all 700ms ease-in-out;
+.produits_page #presentation_produit #produits_page__option {
+  display: none;
 }
 @media screen and (min-width: 601px) {
-  .produits_page img {
-    min-height: 350px !important;
+  .produits_page #presentation_produit #produits_page__option {
+    display: inline;
   }
-}
-.produits_page li:after {
-  content: " + ";
-  color: #4F6457;
-}
-.produits_page #description {
-  color: #4F6457;
-  text-align: center;
-}
-.produits_page #prix {
-  color: #D9B44A;
-}
-.produits_page #produit_choisit {
-  max-width: 100%;
-}
-.produits_page label {
-  font-size: 1rem;
-  padding-right: 10px;
-  color: black !important;
-}
-.produits_page select {
-  font-size: 0.9rem;
-  padding: 2px 5px;
-  color: black !important;
-}
-.produits_page .produits {
-  text-align: center;
 }
 
 /*# sourceMappingURL=style.css.map */

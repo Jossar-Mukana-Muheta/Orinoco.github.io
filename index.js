@@ -15,83 +15,97 @@ document.addEventListener('DOMContentLoaded', function () {
 })
 
 window.addEventListener('load', (event) => {
+  getInformation()
+})
 
-  let presentationProduit = document.getElementById('presentation_produit')
+let presentationProduit = document.getElementById('presentation_produit')
 
-  let newLoaders = document.createElement('div')
-  presentationProduit.appendChild(newLoaders)
-  newLoaders.setAttribute('class', 'lds-hourglass')
+let newLoaders = document.createElement('div')
+presentationProduit.appendChild(newLoaders)
+newLoaders.setAttribute('class', 'lds-hourglass')
 
-  /* */
-  const getInformation = () => {
-    return new Promise((resolve, reject) => {
-      const xhr = new XMLHttpRequest()
-      xhr.open('GET', 'http://localhost:3000/api/cameras')
-      xhr.onload = () => resolve(JSON.parse(xhr.responseText))
-      xhr.onerror = () => reject()
-      xhr.send()
-    })
+/* requete pour récuperer information API */
+const getInformation = () => {
+  return new Promise((resolve, reject) => {
+    const xhr = new XMLHttpRequest()
+    xhr.open('GET', 'http://localhost:3000/api/cameras')
+    xhr.onload = () => resolve(JSON.parse(xhr.responseText))
+    xhr.onerror = () => reject()
+    xhr.send()
+  })
+}
 
-  }
+// Fonction pour afficher élément récuperer sur la page d'accueil
+getInformation().then((responseText) => {
+  presentationProduit.removeChild(newLoaders)
+  getProduit = (responseText) => {
+    let list = document.getElementById('list_produits')
+    for (let i = 0; i < responseText.length; i++) {
+      let presentationProduit = document.getElementById('presentation_produit')
 
-  getInformation().then((responseText) => {
-    presentationProduit.removeChild(newLoaders)
-    getProduit = (responseText) => {
-      let list = document.getElementById('list_produits')
-      for (let i = 0; i < responseText.length; i++) {
-        let presentationProduit = document.getElementById('presentation_produit')
+      /* Création div */
+      let newElt = document.createElement('div')
+      presentationProduit.appendChild(newElt)
+      newElt.setAttribute('id', 'produits_page__option')
 
-        /* Création div */
-        let newElt = document.createElement('div')
-        presentationProduit.appendChild(newElt)
-        newElt.setAttribute('id', 'produits_page__option')
+      /* Création balise Title */
+      let newTitle = document.createElement('h2')
+      newElt.appendChild(newTitle)
+      newTitle.setAttribute('id', 'title_produit')
 
-        /* Création balise image */
-        let newImg = document.createElement('img')
-        newElt.appendChild(newImg)
-        newImg.setAttribute('id', 'image_produit')
-        newImg.setAttribute('src', responseText[i].imageUrl)
+      let hrefVal = responseText[i]._id
+      console.log(hrefVal)
 
-        /* Création balise p description du produit */
-        let newDescription = document.createElement('p')
-        newElt.appendChild(newDescription)
-        newDescription.setAttribute('id', 'description')
-        newDescription.innerHTML = responseText[i].description
+      /* Création link Title */
+      let newLink = document.createElement('a')
+      newTitle.appendChild(newLink)
+      newLink.setAttribute('href', 'produits.html' + hrefVal, 'id', 'linkTitle')
+      newLink.innerHTML = responseText[i].name
 
-        /* Création balise p affichage du prix */
-        let newPrice = document.createElement('p')
-        newElt.appendChild(newPrice)
-        newPrice.setAttribute('id', 'prix')
-        newPrice.innerHTML = responseText[i].price + ' Euros'
-      }
+      /* Création balise image */
+      let newImg = document.createElement('img')
+      newElt.appendChild(newImg)
+      newImg.setAttribute('id', 'image_produit')
+      newImg.setAttribute('src', responseText[i].imageUrl)
+
+      /* Création balise p description du produit */
+      let newDescription = document.createElement('p')
+      newElt.appendChild(newDescription)
+      newDescription.setAttribute('id', 'description')
+      newDescription.innerHTML = responseText[i].description
+
+      /* Création balise p affichage du prix */
+      let newPrice = document.createElement('p')
+      newElt.appendChild(newPrice)
+      newPrice.setAttribute('id', 'prix')
+      newPrice.innerHTML = responseText[i].price + ' Euros'
     }
+  }
+  console.log(responseText)
+  getProduit(responseText)
+})
+// En cas d'erreur de récuperation
+getInformation().catch(() => {
+  presentationProduit.removeChild(newLoaders)
+  let newElt = document.createElement('div')
+  presentationProduit.appendChild(newElt)
+  newElt.setAttribute('id', 'produits_page__option')
 
-    getProduit(responseText)
-  })
+  /* Création balise image */
+  let newImg = document.createElement('img')
+  newElt.appendChild(newImg)
+  newImg.setAttribute('id', 'image_produit')
+  newImg.setAttribute('src', 'images/errorserver.jpg')
 
-  getInformation().catch(() => {
-    
-    presentationProduit.removeChild(newLoaders)
-    let newElt = document.createElement('div')
-    presentationProduit.appendChild(newElt)
-    newElt.setAttribute('id', 'produits_page__option')
+  /* Création balise p description du produit */
+  let newDescription = document.createElement('p')
+  newElt.appendChild(newDescription)
+  newDescription.setAttribute('id', 'description')
+  newDescription.innerHTML = "une erreur c'est produite"
 
-    /* Création balise image */
-    let newImg = document.createElement('img')
-    newElt.appendChild(newImg)
-    newImg.setAttribute('id', 'image_produit')
-    newImg.setAttribute('src', 'images/errorserver.jpg')
-
-    /* Création balise p description du produit */
-    let newDescription = document.createElement('p')
-    newElt.appendChild(newDescription)
-    newDescription.setAttribute('id', 'description')
-    newDescription.innerHTML = "une erreur c'est produite"
-
-    /* Création balise p affichage du prix */
-    let newPrice = document.createElement('a')
-    newElt.appendChild(newPrice)
-    newPrice.setAttribute('href', 'index.html')
-    newPrice.innerHTML = 'clickez pour recharger'
-  })
+  /* Création balise p affichage du prix */
+  let newPrice = document.createElement('a')
+  newElt.appendChild(newPrice)
+  newPrice.setAttribute('href', 'index.html')
+  newPrice.innerHTML = 'clickez pour recharger'
 })

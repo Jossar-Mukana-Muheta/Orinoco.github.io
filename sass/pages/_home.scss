@@ -95,6 +95,14 @@ article{
     margin-block-start: 0em;
     font-size: 16px;
   }
+
+  #linkTitle{
+    font-size: 20px;
+
+    @include desktop{
+      font-size: 30px !important;
+    }
+  }
 }
 
 aside{
