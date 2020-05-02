@@ -20,8 +20,17 @@ getNbrProduct = (number) => {
   } else {
     panier = number
     return panier 
+  }
+  
+  // Prix panier
+  var total;
+  var panier = 2;
+  totalPrice =(priceProduct)=>{
+    return total = panier + priceProduct;
+  }
 }
-}
+
+
 
 // Mauvaise Url
 var goodUrl;
@@ -34,9 +43,3 @@ errorUrl = (urlUser) => {
 }
 }
 
-// Prix panier
-var total;
-var panier = 2;
-totalPrice =(priceProduct)=>{
-return total = panier + priceProduct;
-}

@@ -247,7 +247,7 @@ aside {
 
 .produits_page {
   display: flex;
-  justify-content: space-evenly;
+  justify-content: flex-start;
   flex-direction: column;
   align-items: center;
 }
@@ -255,6 +255,9 @@ aside {
   .produits_page {
     flex-direction: row;
   }
+}
+.produits_page #presentation_produit {
+  margin-left: 30px;
 }
 .produits_page #presentation_produit .description {
   display: none;

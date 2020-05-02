@@ -32,6 +32,7 @@ newLoaders.setAttribute('class', 'lds-hourglass')
 getInformation.then((responseText) => {
   // Fonction pour afficher élément récuperer sur la page d'accueil
   getProduit(responseText)
+  
 })
 // En cas d'erreur de récuperation
 getInformation.catch((reject) => {
@@ -60,7 +61,7 @@ const getProduit = (responseText) => {
     newTitle.appendChild(newLink)
     newLink.setAttribute(
       'href',
-      'produits.html?img=' + responseText[i].imageUrl,
+      'produits.html?img=' + responseText[i].imageUrl + '&price=' + responseText[i].price + '&descr=' + responseText[i].description,
       'id',
       responseText[i].name
     )
@@ -84,6 +85,7 @@ const getProduit = (responseText) => {
     newPrice.setAttribute('class', 'prix')
     newPrice.innerHTML = responseText[i].price + ' Euros'
   }
+  getChoiceProduct();
 }
 
 // Fonction pour afficher une erreur et invite à recharger la page
@@ -107,12 +109,27 @@ const getProduitError = () => {
   newElt.appendChild(newPrice)
   newPrice.setAttribute('href', 'index.html')
   newPrice.innerHTML = 'clickez pour recharger'
-};
+}
 
+getChoiceProduct =() =>{
 
-const queryString = window.location.search;
-const urlParams = new URLSearchParams(queryString);
-const product = urlParams.get('img')
-console.log(product);
+  //Réquete url page produit
+
+const queryString = window.location.search
+
+const urlParams = new URLSearchParams(queryString)
+const image = urlParams.get('img')
+const prix = urlParams.get('price')
+const descr = urlParams.get('descr')
+
 let imgProduitChoisit = document.getElementById('produit_choisit')
-imgProduitChoisit.setAttribute("src",product)
+let descrR = document.getElementById('description')
+let prixProduitChoisit = document.getElementById('prix')
+
+imgProduitChoisit.setAttribute('src', image)
+prixProduitChoisit.innerHTML = prix
+descrR.innerHTML = descr
+
+}
+
+
