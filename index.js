@@ -14,6 +14,8 @@ document.addEventListener('DOMContentLoaded', function () {
   })
 })
 
+
+
 window.addEventListener('load', (event) => {
   getInformation()
 })
@@ -53,13 +55,12 @@ getInformation().then((responseText) => {
       newElt.appendChild(newTitle)
       newTitle.setAttribute('id', 'title_produit')
 
-      let hrefVal = responseText[i]._id
-      console.log(hrefVal)
+      
 
       /* Création link Title */
       let newLink = document.createElement('a')
       newTitle.appendChild(newLink)
-      newLink.setAttribute('href', 'produits.html' + hrefVal, 'id', 'linkTitle')
+      newLink.setAttribute('href', 'produits.html', 'id', 'linkTitle')
       newLink.innerHTML = responseText[i].name
 
       /* Création balise image */
@@ -79,10 +80,28 @@ getInformation().then((responseText) => {
       newElt.appendChild(newPrice)
       newPrice.setAttribute('id', 'prix')
       newPrice.innerHTML = responseText[i].price + ' Euros'
+
+      newLink.addEventListener('click', function(e){
+        let produitChoisitImg = document.getElementById('produit_choisit')
+        let description = document.getElementById('description')
+        let prix = document.getElementById('prix')
+    
+        description.innerHTML = responseText[i].description;
+        produitChoisitImg.setAttribute("src", responseText[i].imageUrl)
+        prix.innerHTML = responseText[i].price + " Euros"
+    
+      });
+
     }
+
+    
   }
-  console.log(responseText)
+
   getProduit(responseText)
+
+
+  
+  
 })
 // En cas d'erreur de récuperation
 getInformation().catch(() => {
@@ -109,3 +128,4 @@ getInformation().catch(() => {
   newPrice.setAttribute('href', 'index.html')
   newPrice.innerHTML = 'clickez pour recharger'
 })
+

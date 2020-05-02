@@ -253,11 +253,18 @@ aside {
   display: flex;
   justify-content: space-between;
   flex-direction: column;
+  align-items: center;
 }
 @media screen and (min-width: 601px) {
   .produits_page {
     flex-direction: row;
   }
+}
+.produits_page #presentation_produit #description {
+  display: none;
+}
+.produits_page #presentation_produit #title_produit {
+  margin: 0px;
 }
 @media screen and (min-width: 601px) {
   .produits_page #presentation_produit {
@@ -273,6 +280,10 @@ aside {
   .produits_page #presentation_produit #produits_page__option {
     display: inline;
   }
+}
+
+#produit_choisit {
+  height: 300px;
 }
 
 /*# sourceMappingURL=style.css.map */

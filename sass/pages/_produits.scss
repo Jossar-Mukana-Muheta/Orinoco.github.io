@@ -2,16 +2,22 @@
   display: flex;
   justify-content:space-between;
   flex-direction: column;
+  align-items: center;
 
   @include desktop{
     flex-direction: row;
   }
 
-  
-
   #presentation_produit{
     
-    
+    #description{
+      display: none;
+    }
+
+    #title_produit{
+      margin: 0px;
+    }
+
     @include desktop{
       width: 25%;
     display: flex;
@@ -27,4 +33,10 @@
     }
   }
 
+
+}
+
+
+#produit_choisit{
+  height: 300px;
 }
