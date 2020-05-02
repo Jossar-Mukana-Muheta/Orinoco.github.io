@@ -39,7 +39,7 @@ article{
 
   }
 
-  #produits_page__option{
+  .produits_page__option{
     margin: 14px;
     border: solid 1px rgba(79,100,87,0.06) ;
     background-color: rgba(172,208,192,0.12);
@@ -78,14 +78,11 @@ article{
       
     }
 
-    #prix{
+    .prix{
       color: $colour-secondary;
       font-style: italic;
     }
 
-    a{
-      font-size: 13px;
-    }
   
   .card-image{
       overflow: hidden;
@@ -96,11 +93,11 @@ article{
     font-size: 16px;
   }
 
-  #linkTitle{
+  a{
     font-size: 20px;
 
     @include desktop{
-      font-size: 30px !important;
+      font-size: 25px !important;
     }
   }
 }

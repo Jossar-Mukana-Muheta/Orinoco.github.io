@@ -1,6 +1,6 @@
 .produits_page{
   display: flex;
-  justify-content:space-between;
+  justify-content: space-evenly;
   flex-direction: column;
   align-items: center;
 
@@ -10,11 +10,11 @@
 
   #presentation_produit{
     
-    #description{
+    .description{
       display: none;
     }
 
-    #title_produit{
+    .title_produit{
       margin: 0px;
     }
 
@@ -24,8 +24,10 @@
     flex-direction: column;
     }
 
-    #produits_page__option{
+    .produits_page__option{
       display: none;
+      margin: 0px;
+      margin-bottom: 5px;
 
       @include desktop{
         display: inline;
@@ -33,10 +35,13 @@
     }
   }
 
+  a{
+    font-size: 13px !important;
+  }
 
 }
 
 
 #produit_choisit{
-  height: 300px;
+  height: 400px !important;
 }
