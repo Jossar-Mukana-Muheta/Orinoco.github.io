@@ -48,3 +48,12 @@ a:hover{
     cursor: pointer;
     font-weight: bold;
 }
+
+p{
+    //mobile
+    font-size: 13px;
+
+    @include desktop{
+        font-size: 25px;
+    }
+}
