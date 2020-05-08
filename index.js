@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', function () {
   })
 })
 
-// Requète pour récuréper l'objet
+// Requète vers Api récupération 
 const getInformation = new Promise((resolve, reject) => {
   const xhr = new XMLHttpRequest()
   xhr.open('GET', 'http://localhost:3000/api/cameras')
@@ -30,9 +30,8 @@ presentationProduit.appendChild(newLoaders)
 newLoaders.setAttribute('class', 'lds-hourglass')
 
 getInformation.then((responseText) => {
-  // Fonction pour afficher élément récuperer sur la page d'accueil
   getProduit(responseText)
-  
+
 })
 // En cas d'erreur de récuperation
 getInformation.catch((reject) => {
@@ -59,9 +58,10 @@ const getProduit = (responseText) => {
     /* Création link Title */
     let newLink = document.createElement('a')
     newTitle.appendChild(newLink)
+
     newLink.setAttribute(
       'href',
-      'produits.html?img=' + responseText[i].imageUrl + '&price=' + responseText[i].price + '&descr=' + responseText[i].description,
+      'produits.html?img=' + responseText[i].imageUrl + '&price=' + responseText[i].price + '&descr=' + responseText[i].description + '&option=' + responseText[i].lenses,
       'id',
       responseText[i].name
     )
@@ -88,8 +88,11 @@ const getProduit = (responseText) => {
   getChoiceProduct();
 }
 
-// Fonction pour afficher une erreur et invite à recharger la page
+
 const getProduitError = () => {
+
+  // Fonction pour afficher une erreur et invite à recharger la page
+
   presentationProduit.removeChild(newLoaders)
   let newElt = document.createElement('div')
   presentationProduit.appendChild(newElt)
@@ -111,25 +114,38 @@ const getProduitError = () => {
   newPrice.innerHTML = 'clickez pour recharger'
 }
 
-getChoiceProduct =() =>{
+getChoiceProduct = () => {
 
   //Réquete url page produit
 
-const queryString = window.location.search
+  const queryString = window.location.search
 
-const urlParams = new URLSearchParams(queryString)
-const image = urlParams.get('img')
-const prix = urlParams.get('price')
-const descr = urlParams.get('descr')
+  const urlParams = new URLSearchParams(queryString)
+  const image = urlParams.get('img')
+  const prix = urlParams.get('price')
+  const descr = urlParams.get('descr')
+  const option_get = urlParams.get('option')
 
-let imgProduitChoisit = document.getElementById('produit_choisit')
-let descrR = document.getElementById('description')
-let prixProduitChoisit = document.getElementById('prix')
 
-imgProduitChoisit.setAttribute('src', image)
-prixProduitChoisit.innerHTML = prix
-descrR.innerHTML = descr
+
+
+  let imgProduitChoisit = document.getElementById('produit_choisit')
+  let descrR = document.getElementById('description')
+  let prixProduitChoisit = document.getElementById('prix')
+  let lentille = document.getElementById('lentille-select')
+
+  // récuperer option + affichage liste déroulante
+  var res = option_get.split(',');
+  for (let i = 0; i < res.length; i++) {
+    let option = document.createElement('option')
+    lentille.appendChild(option)
+    option.setAttribute('value', res[i])
+    option.innerHTML = res[i]
+    console.log(res[0])
+  }
+
+  imgProduitChoisit.setAttribute('src', image)
+  prixProduitChoisit.innerHTML = prix
+  descrR.innerHTML = descr
 
 }
-
-

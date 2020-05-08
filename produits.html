@@ -1,121 +1,91 @@
 <!DOCTYPE html>
 <html lang="fr">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <link
-      href="https://fonts.googleapis.com/css?family=Roboto:100,900i"
-      rel="stylesheet"
-    />
-    <link
-      href="https://fonts.googleapis.com/icon?family=Material+Icons"
-      rel="stylesheet"
-    />
-    <link
-      href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="css/style.css" />
-    <!-- Compiled and minified CSS -->
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
-    />
 
-    <title>Orinico</title>
-  </head>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <link href="https://fonts.googleapis.com/css?family=Roboto:100,900i" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+  <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+  <!-- Compiled and minified CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" />
 
-  <body>
-    <div class="container_page">
-      <header class="header">
-        <nav>
-          <div class="nav-wrapper">
-            <a href="index.html" class="brand-logo"
-              ><img id="logo" src="images/logo.png" alt="logo"
-            /></a>
-            <a href="#" data-target="mobile-demo" class="sidenav-trigger"
-              ><img src="images/menu-black-18dp.svg"
-            /></a>
+  <title>Orinico</title>
+</head>
 
-            <ul class="right hide-on-med-and-down">
-              <li><a href="index.html">Accueil</a></li>
-              <li><a href="produits.html">Produits</a></li>
-              <li>
-                <a href="panier.html.html"
-                  ><i class="material-icons">add_shopping_cart</i></a
-                >
-              </li>
-            </ul>
-          </div>
-        </nav>
+<body>
+  <div class="container_page">
+    <header class="header">
+      <nav>
+        <div class="nav-wrapper">
+          <a href="index.html" class="brand-logo"><img id="logo" src="images/logo.png" alt="logo" /></a>
+          <a href="#" data-target="mobile-demo" class="sidenav-trigger"><img src="images/menu-black-18dp.svg" /></a>
 
-        <ul class="sidenav" id="mobile-demo">
-          <li><a href="index.html">Accueil</a></li>
-          <li><a href="produits.html">Produits</a></li>
-          <li><a href="panier.html.html">Votre Panier</a></li>
-        </ul>
-      </header>
-
-      <section class="produits_page">
-        <article id="presentation_produit"></article>
-        <div id="produits_page__option">
-          <img id="produit_choisit" src="" alt="" />
-          <p id="description"></p>
-          <p id="prix"></p>
-          <input type="checkbox" name="" id="" />
+          <ul class="right hide-on-med-and-down">
+            <li><a href="index.html">Accueil</a></li>
+            <li><a href="produits.html">Produits</a></li>
+            <li>
+              <a href="panier.html.html"><i class="material-icons">add_shopping_cart</i></a>
+            </li>
+          </ul>
         </div>
+      </nav>
 
-        <div class="option_produit">
-          <label for="pet-select">Personnalisation :</label>
+      <ul class="sidenav" id="mobile-demo">
+        <li><a href="index.html">Accueil</a></li>
+        <li><a href="produits.html">Produits</a></li>
+        <li><a href="panier.html.html">Votre Panier</a></li>
+      </ul>
+    </header>
 
-          <select name="pets" id="pet-select" required>
-            <option value="">-- Choissisez une option --</option>
-            <option value="dog">Dog</option>
-            <option value="cat">Cat</option>
-            <option value="hamster">Hamster</option>
-            <option value="parrot">Parrot</option>
-            <option value="spider">Spider</option>
-            <option value="goldfish">Goldfish</option>
+    <section class="produits_page">
+      <div id="presentation_produit"></div>
+      <div id="produits_page__option">
+        <img id="produit_choisit" src="" alt="" />
+        <p id="description"></p>
+        <p id="prix"></p>
+      </div>
+
+      <div class="option_produit">
+        <div id="option">
+          <label for="lentille-select">Vos option :</label>
+          <select name="lentille" id="lentille-select" required>
+            <option value="">-- Choissisez une lentille --</option>
           </select>
-
-          
-          <div id="quantite">
-            <label for="tentacles">Quantités :</label>
-
-            <input type="number" id="tentacles" name="tentacles"
-                min="1" max="100" required>
-          </div>
-          <div id="ajout_panier">
-            <a class="waves-effect waves-light btn"><i class="material-icons right">cloud</i>Ajouter au panier</a>
-        </div>
         </div>
 
-        
-      </section>
-      <footer>
-        <div class="footer-copyright">
-          <p>© 2020 Copyright MMJ</p>
+        <div id="quantite">
+          <label for="tentacles">Quantités :</label>
+          <input type="number" id="tentacles" name="tentacles" min="1" max="100" required>
         </div>
-        <div class="footer-content">
-          <p>Contactez-nous pour plus d'informations</p>
-        </div>
-        <div class="footer-social">
-          <a class="social" href="https://twitter.com/MJossar"
-            ><i class="fa fa-twitter"></i
-          ></a>
-          <a class="social" href="tel:+33760402282"
-            ><i class="fa fa-phone"></i
-          ></a>
-          <a class="social" href="mailto:mukanamj.devpro@gmail.com"
-            ><i class="fa fa-envelope"></i
-          ></a>
-        </div>
-      </footer>
-    </div>
 
-    <script src="index.js"></script>
-    <!-- Compiled and minified JavaScript -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-  </body>
+        <div id="ajout_panier">
+          <a class="waves-effect waves-light btn"><i class="material-icons right">cloud</i>Ajouter au panier</a>
+        </div>
+      </div>
+
+
+    </section>
+    <footer>
+      <div class="footer-copyright">
+        <p>© 2020 Copyright MMJ</p>
+      </div>
+      <div class="footer-content">
+        <p>Contactez-nous pour plus d'informations</p>
+      </div>
+      <div class="footer-social">
+        <a class="social" href="https://twitter.com/MJossar"><i class="fa fa-twitter"></i></a>
+        <a class="social" href="tel:+33760402282"><i class="fa fa-phone"></i></a>
+        <a class="social" href="mailto:mukanamj.devpro@gmail.com"><i class="fa fa-envelope"></i></a>
+      </div>
+    </footer>
+  </div>
+
+  <script src="index.js"></script>
+  <!-- Compiled and minified JavaScript -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+</body>
+
 </html>

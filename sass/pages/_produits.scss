@@ -1,71 +1,88 @@
-.produits_page{
+.produits_page {
   display: flex;
-  justify-content: flex-start;;
+  justify-content: center;
   flex-direction: column;
   align-items: center;
 
-  @include desktop{
+  @include desktop {
     flex-direction: row;
   }
 
-  
 
-  a{
+
+  a {
     font-size: 13px !important;
   }
 
 
 
-//section gauche
-#presentation_produit{
-    
-  margin-left: 30px;
-  display: none !important;
+  //section gauche
+  #presentation_produit {
 
-  .description{
-    display: none;
+    margin-left: 30px;
+    display: none !important;
+
+    .description {
+      display: none;
+    }
+
+    .title_produit {
+      margin: 0px;
+    }
+
+    @include desktop {
+      width: 25%;
+      display: flex;
+      flex-direction: column;
+    }
+
+
   }
 
-  .title_produit{
-    margin: 0px;
+  //section milieu
+  #produits_page__option {
+    margin: 10px;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
+
+    @include desktop {
+      max-width: 50%;
+      justify-content: center;
+      align-items: center;
+    }
+
+    img {
+      max-height: 250px;
+
+      @include desktop {
+        width: 50%s;
+      }
+    }
+
+    p {
+      text-align: center;
+
+      @include desktop {
+        width: 50%;
+      }
+    }
+
+    #prix {
+      color: $colour_secondary;
+    }
+
   }
 
-  @include desktop{
-    width: 25%;
-  display: flex;
-  flex-direction: column;
+
+  //section droit
+
+  .option_produit {
+    label {
+      color: $colour_secondary;
+    }
   }
 
-  
-}
-
-//section milieu
-#produits_page__option{
-  margin: 10px;
-
-  display: flex;
-  flex-direction: column;
-  align-content: center;
-  justify-content: center;
-
-  img{
-    max-height: 250px;
-  }
-
-  p{
-    text-align: center;
-  }
-
-  #prix{
-    color: $colour_secondary;
-  }
-
-}
-
-
-//section droit
-#produit_choisit{
-  height: 400px !important;
-}
 
 }
