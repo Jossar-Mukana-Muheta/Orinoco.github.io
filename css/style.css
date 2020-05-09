@@ -110,6 +110,9 @@ p {
 .btn-large {
   background-color: #ACD0C0 !important;
 }
+.btn-large-red {
+  background-color: red !important;
+}
 
 #ajout_panier {
   margin-top: 20px;

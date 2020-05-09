@@ -1,8 +1,12 @@
-.btn-large{
+.btn-large {
   background-color: $colour-third !important;
+
+  &-red {
+    background-color: red !important;
+  }
 }
 
-#ajout_panier{
+#ajout_panier {
   margin-top: 20px;
   text-align: center;
 }
