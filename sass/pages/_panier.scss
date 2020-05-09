@@ -1,0 +1,28 @@
+.panier {
+  display: flex;
+  flex-direction: column;
+
+  margin: 30px;
+
+  img {
+    max-height: 200px;
+  }
+
+  text-align: center;
+
+  #titre_panier {
+    border-bottom: 1px solid lightgrey;
+    text-align: left;
+  }
+
+  #total {
+    text-align: right;
+  }
+
+  #totalCalcul {
+    text-align: right;
+  }
+  .prix:last-child {
+    text-decoration: underline;
+  }
+}

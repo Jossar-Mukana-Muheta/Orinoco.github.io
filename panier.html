@@ -6,8 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link href="https://fonts.googleapis.com/css?family=Roboto:100,900i" rel="stylesheet">
-     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
     <!-- Compiled and minified CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
@@ -28,11 +28,10 @@
                     <ul class="right hide-on-med-and-down">
                         <li><a href="index.html">Accueil</a></li>
                         <li><a href="produits.html">Produits</a></li>
-                        <li><a href="panier.html.html"><i class="material-icons">add_shopping_cart</i></a></li>
+                        <li><a href="panier.html"><i class="material-icons">add_shopping_cart</i></a></li>
                     </ul>
                 </div>
             </nav>
-
             <ul class="sidenav" id="mobile-demo">
                 <li><a href="index.html">Accueil</a></li>
                 <li><a href="produits.html">Produits</a></li>
@@ -40,21 +39,43 @@
             </ul>
         </header>
 
-        <section>
-           
-            
+        <section class="panier">
+
+            <div id="titre_panier">
+                <h2>Votre Panier</h2>
+
+            </div>
+
+            <div id="total">
+                <p>Prix</p>
+            </div>
+            <div id="totalCalcul">
+                <p>Total : <span id="prixTotal"></span></p>
+            </div>
+
+            <div id="panier">
+
+            </div>
+
+            <div id="supp_panier">
+                <a onclick='suppPanier()' class="waves-effect waves-light btn" id="btnPanier"><i
+                        class="material-icons right">cloud</i>Supprimer mon panier</a>
+            </div>
+
+
+
         </section>
         <footer>
             <div class="footer-copyright">
-                <p>© 2020 Copyright MMJ </p> 
+                <p>© 2020 Copyright MMJ </p>
             </div>
             <div class="footer-content">
                 <p>Contactez-nous pour plus d'informations</p>
             </div>
             <div class="footer-social">
                 <a class="social" href="https://twitter.com/MJossar"><i class="fa fa-twitter"></i></a>
-          <a class="social" href="tel:+33760402282"><i class="fa fa-phone"></i></a>
-          <a class="social" href="mailto:mukanamj.devpro@gmail.com"><i class="fa fa-envelope"></i></a>
+                <a class="social" href="tel:+33760402282"><i class="fa fa-phone"></i></a>
+                <a class="social" href="mailto:mukanamj.devpro@gmail.com"><i class="fa fa-envelope"></i></a>
             </div>
         </footer>
 
@@ -63,7 +84,7 @@
 
 
 
-    <script src="index.js"></script>
+    <script src="panier.js"></script>
     <!-- Compiled and minified JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 </body>

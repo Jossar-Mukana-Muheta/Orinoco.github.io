@@ -27,7 +27,7 @@
             <li><a href="index.html">Accueil</a></li>
             <li><a href="produits.html">Produits</a></li>
             <li>
-              <a href="panier.html.html"><i class="material-icons">add_shopping_cart</i></a>
+              <a href="panier.html"><i class="material-icons">add_shopping_cart</i></a>
             </li>
           </ul>
         </div>
@@ -43,6 +43,7 @@
     <section class="produits_page">
       <div id="presentation_produit"></div>
       <div id="produits_page__option">
+        <p id="titre_produit"></p>
         <img id="produit_choisit" src="" alt="" />
         <p id="description"></p>
         <p id="prix"></p>
@@ -58,11 +59,13 @@
 
         <div id="quantite">
           <label for="tentacles">Quantités :</label>
-          <input type="number" id="tentacles" name="tentacles" min="1" max="100" required>
+          <input type="number" id="quantite" name="tentacles" min="1" max="100" required>
         </div>
 
         <div id="ajout_panier">
-          <a class="waves-effect waves-light btn"><i class="material-icons right">cloud</i>Ajouter au panier</a>
+          <a onclick='onClick()' disabled class="waves-effect waves-light btn" id="btnPanier"><i
+              class="material-icons right">cloud</i>Ajouter au
+            panier</a>
         </div>
       </div>
 

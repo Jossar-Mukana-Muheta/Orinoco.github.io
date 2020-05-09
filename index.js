@@ -31,7 +31,7 @@ newLoaders.setAttribute('class', 'lds-hourglass')
 
 getInformation.then((responseText) => {
   getProduit(responseText)
-
+  getChoiceProduct()
 })
 // En cas d'erreur de récuperation
 getInformation.catch((reject) => {
@@ -61,11 +61,12 @@ const getProduit = (responseText) => {
 
     newLink.setAttribute(
       'href',
-      'produits.html?img=' + responseText[i].imageUrl + '&price=' + responseText[i].price + '&descr=' + responseText[i].description + '&option=' + responseText[i].lenses,
+      'produits.html?name=' + responseText[i].name + '&img=' + responseText[i].imageUrl + '&price=' + responseText[i].price + '&descr=' + responseText[i].description + '&option=' + responseText[i].lenses,
       'id',
       responseText[i].name
     )
     newLink.innerHTML = responseText[i].name
+
 
     /* Création balise image */
     let newImg = document.createElement('img')
@@ -85,7 +86,6 @@ const getProduit = (responseText) => {
     newPrice.setAttribute('class', 'prix')
     newPrice.innerHTML = responseText[i].price + ' Euros'
   }
-  getChoiceProduct();
 }
 
 
@@ -117,35 +117,104 @@ const getProduitError = () => {
 getChoiceProduct = () => {
 
   //Réquete url page produit
-
   const queryString = window.location.search
 
   const urlParams = new URLSearchParams(queryString)
+  const titre = urlParams.get('name')
   const image = urlParams.get('img')
   const prix = urlParams.get('price')
-  const descr = urlParams.get('descr')
-  const option_get = urlParams.get('option')
+  const description = urlParams.get('descr')
+  const optionList = urlParams.get('option')
 
 
 
-
+  let titreProduit = document.getElementById('titre_produit')
   let imgProduitChoisit = document.getElementById('produit_choisit')
-  let descrR = document.getElementById('description')
+  let descriptionProduitChoisit = document.getElementById('description')
   let prixProduitChoisit = document.getElementById('prix')
   let lentille = document.getElementById('lentille-select')
 
   // récuperer option + affichage liste déroulante
-  var res = option_get.split(',');
-  for (let i = 0; i < res.length; i++) {
+  var optionTableau = optionList.split(',')
+  for (let i = 0; i < optionTableau.length; i++) {
     let option = document.createElement('option')
     lentille.appendChild(option)
-    option.setAttribute('value', res[i])
-    option.innerHTML = res[i]
-    console.log(res[0])
+    option.setAttribute('value', optionTableau[i])
+    option.innerHTML = optionTableau[i]
   }
 
   imgProduitChoisit.setAttribute('src', image)
-  prixProduitChoisit.innerHTML = prix
-  descrR.innerHTML = descr
+  prixProduitChoisit.innerHTML = prix + ' €'
+  descriptionProduitChoisit.innerHTML = description
+  titreProduit.innerHTML = titre
+
+
+
+  // Valider panier 
+
+
+  //Vérifier Option + quantités
+  const lentilleBorder = document.getElementById('lentille-select')
+  lentilleBorder.style.border = '2px solid red'
+
+  quantite = document.getElementById('quantite')
+  var quantiteReel;
+
+  const btnValidation = document.getElementById('btnPanier')
+
+  lentille.addEventListener('change', function (e) {
+
+    if (e.target.value != '') {
+      quantite.addEventListener('change', function (e) {
+        quantiteReel = e.target.value
+        validOption()
+      })
+
+    } else {
+      lentilleBorder.style.border = '2px solid red'
+      btnValidation.setAttribute('disabled', '')
+    }
+
+  })
+
+  validOption = () => {
+
+    if (lentille.value != '' &&
+      quantiteReel) {
+      lentilleBorder.style.border = '2px solid green'
+      btnValidation.removeAttribute('disabled')
+    } else {
+      lentilleBorder.style.border = '2px solid red'
+    }
+
+  }
+
+  // Ajouter produit au localstoral
+
+  onclick = () => {
+
+    btnValidation.setAttribute('href', 'panier.html')
+    do {
+      localStorage.setItem('panier image', image)
+      localStorage.setItem('panier titre', titre)
+      localStorage.setItem('panier prix', prix)
+      localStorage.setItem('quantite', quantiteReel)
+      localStorage.setItem('option', lentille.value)
+      i = i + 1;
+    } while (i > 0);
+
+  }
+
+
+
+
+
+
+
+
+
+
+
+
 
 }

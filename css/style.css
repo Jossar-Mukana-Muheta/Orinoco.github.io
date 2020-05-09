@@ -342,4 +342,27 @@ aside {
   color: #D9B44A;
 }
 
+.panier {
+  display: flex;
+  flex-direction: column;
+  margin: 30px;
+  text-align: center;
+}
+.panier img {
+  max-height: 200px;
+}
+.panier #titre_panier {
+  border-bottom: 1px solid lightgrey;
+  text-align: left;
+}
+.panier #total {
+  text-align: right;
+}
+.panier #totalCalcul {
+  text-align: right;
+}
+.panier .prix:last-child {
+  text-decoration: underline;
+}
+
 /*# sourceMappingURL=style.css.map */
