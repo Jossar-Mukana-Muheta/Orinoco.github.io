@@ -60,6 +60,7 @@ getProduct.getAllInformation()
       let newImg = document.createElement('img')
       newElt.appendChild(newImg)
       newImg.setAttribute('class', 'image_produit')
+      newImg.setAttribute('alt', 'appareil photo')
       newImg.setAttribute('src', responseText[i].imageUrl)
 
       /* Création balise p description du produit */
@@ -86,6 +87,7 @@ getProduct.getAllInformation()
     let newImg = document.createElement('img')
     newElt.appendChild(newImg)
     newImg.setAttribute('id', 'image_produit')
+    newImg.setAttribute('alt', 'homme perdu dans un champs')
     newImg.setAttribute('src', 'images/errorserver.jpg')
 
     let newDescription = document.createElement('p')

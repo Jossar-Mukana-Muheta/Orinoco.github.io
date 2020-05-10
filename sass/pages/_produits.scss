@@ -1,4 +1,4 @@
-.produits_page {
+#produits_page {
   display: flex;
   justify-content: center;
   flex-direction: column;
@@ -8,17 +8,12 @@
     flex-direction: row;
   }
 
-
-
   a {
     font-size: 13px !important;
   }
 
-
-
   //section gauche
   #presentation_produit {
-
     margin-left: 30px;
     display: none !important;
 
@@ -35,8 +30,6 @@
       display: flex;
       flex-direction: column;
     }
-
-
   }
 
   //section milieu
@@ -72,9 +65,7 @@
     #prix {
       color: $colour_secondary;
     }
-
   }
-
 
   //section droit
 
@@ -84,5 +75,9 @@
     }
   }
 
-
+  #page_defaut {
+    text-align: center;
+    display: flex;
+    justify-content: center;
+  }
 }

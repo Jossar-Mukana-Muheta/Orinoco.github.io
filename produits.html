@@ -40,7 +40,18 @@
       </ul>
     </header>
 
-    <section class="produits_page">
+    <section id="page_defaut" style="text-align: center;">
+      <h2>Mon panier</h2>
+      <p>votre panier est vide</p>
+      <div class="lds-ellipsis">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+      <p><a href="index.html">Visitez notre boutique</a></p>
+    </section>
+    <section id="produits_page">
       <div id="presentation_produit"></div>
       <div id="produits_page__option">
         <p id="titre_produit"></p>
@@ -59,17 +70,14 @@
 
         <div id="quantite">
           <label for="tentacles">Quantités :</label>
-          <input value="1" type="number" id="quantite" name="tentacles" min="1" max="100" required>
+          <input value="1" type="number" id="quantite" name="tentacles" min="1" max="100" required />
         </div>
 
         <div id="ajout_panier">
-          <a onclick='onClick()' disabled class="waves-effect waves-light btn" id="btnPanier"><i
-              class="material-icons right">cloud</i>Ajouter au
-            panier</a>
+          <a onclick="onClick()" disabled class="waves-effect waves-light btn" id="btnPanier"><i
+              class="material-icons right">cloud</i>Ajouter au panier</a>
         </div>
       </div>
-
-
     </section>
     <footer>
       <div class="footer-copyright">
