@@ -2,30 +2,32 @@ import {
     RequetebddId
 } from "./requete.js"
 
-const queryString = window.location.search
-const urlParams = new URLSearchParams(queryString)
-const id = urlParams.get('id')
+let panier = localStorage.getItem('obj')
+let panierJson = JSON.parse(panier)
+
+
+let panierPage = document.getElementById('panier')
+let total = document.getElementById('total')
 
 function getProduitID() {
 
     const getProduitIDs = new RequetebddId
-    getProduitIDs.getInformationId(id)
+    getProduitIDs.getInformationId(panierJson.produit)
         .then((responseText) => {
-            panier = document.getElementById('panier')
-            total = document.getElementById('total')
 
-            prix = document.createElement('p')
+
+            const prix = document.createElement('p')
             total.appendChild(prix)
             prix.setAttribute('class', 'prix')
             prix.innerHTML = responseText.price
-            panier.setAttribute('class', 'produitAjouté')
+            panierPage.setAttribute('class', 'produitAjouté')
 
-            image = document.createElement('img')
-            panier.appendChild(image)
+            const image = document.createElement('img')
+            panierPage.appendChild(image)
             image.setAttribute('src', responseText.imageUrl)
 
-            prixTotal = document.getElementById('prixTotal')
-            prixTotal.innerHTML = responseText.price
+            const prixTotal = document.getElementById('prixTotal')
+            prixTotal.innerHTML = responseText.price * panierJson.quantite
 
         })
 
