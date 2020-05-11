@@ -1,28 +1,78 @@
-.panier {
-  display: flex;
-  flex-direction: column;
-
-  margin: 30px;
-
-  img {
-    max-height: 200px;
+.container_page.panier {
+  #page_defaut {
+    text-align: center;
   }
 
-  text-align: center;
+  #panier {
+    display: none;
+  }
 
   #titre_panier {
-    border-bottom: 1px solid lightgrey;
-    text-align: left;
+    display: flex;
+    justify-content: space-between;
+    margin-inline-start: 5px;
+    margin-inline-end: 5px;
+    align-items: baseline;
+    border-bottom: solid 1px lightgray;
+
+    @include desktop {
+      margin-inline-start: 20%;
+      margin-inline-end: 20%;
+    }
   }
 
-  #total {
-    text-align: right;
+  #panierProduit {
+    display: flex;
+    justify-content: space-between;
+    margin-inline-start: 5px;
+    margin-inline-end: 5px;
+    border-bottom: solid 1px lightgray;
+
+    @include desktop {
+      margin-inline-start: 20%;
+      margin-inline-end: 20%;
+    }
+
+    @include desktop {
+      align-items: center;
+    }
   }
 
-  #totalCalcul {
-    text-align: right;
+  img {
+    height: 30px;
+
+    @include desktop {
+      height: 54px;
+      padding-top: 10px;
+    }
   }
-  .prix:last-child {
-    text-decoration: underline;
+
+  #supp_panier {
+    text-align: center;
+    margin-top: 10%;
+  }
+
+  #valid_panier {
+    text-align: center;
+  }
+
+  #panierResume {
+    font-size: 13px;
+    margin-right: 5px;
+    margin-left: 5px;
+    max-height: 40px;
+    overflow: scroll;
+
+    @include desktop {
+      font-size: 20px;
+    }
+  }
+
+  #panierPrix {
+    font-size: 13px;
+    font-weight: bold;
+    @include desktop {
+      font-size: 20px;
+    }
   }
 }

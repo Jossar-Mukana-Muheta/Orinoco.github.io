@@ -17,7 +17,7 @@
 
 <body>
 
-    <div class="container_page">
+    <div class="container_page panier">
 
         <header class="header">
             <nav>
@@ -39,32 +39,52 @@
             </ul>
         </header>
 
-        <section class="panier">
+        <section id="page_defaut">
+            <h2>Mon panier</h2>
+            <p>votre panier est vide</p>
+            <div class="lds-ellipsis">
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+            <p><a href="index.html">Visitez notre boutique</a></p>
+        </section>
+
+        <section id="panier">
 
             <div id="titre_panier">
-                <h2>Votre Panier</h2>
+                <div>
+                    <h2>Votre Panier</h2>
+                </div>
+                <div>
+                    <p>Prix</p>
+                </div>
+            </div>
+
+            <div id="panierProduit">
+                <div>
+                    <img id="panierImage" alt="appareil_photo">
+                </div>
+                <div>
+                    <p id="panierResume">produit est super</p>
+                </div>
+
+                <div>
+                    <p id="panierPrix">50$</p>
+                </div>
 
             </div>
 
-            <div id="total">
-                <p>Prix</p>
-            </div>
-            <div id="totalCalcul">
-                <p>Total : <span id="prixTotal"></span></p>
-            </div>
-
-            <div id="panier">
-
-            </div>
 
             <div id="supp_panier">
-                <a onclick='suppPanier()' class="waves-effect waves-light btn btn-large-red" id="btnPanier"><i
-                        class="material-icons right">cloud</i>Supprimer mon panier</a>
+                <a class="waves-effect waves-light btn btn-large-red" id="btnPanier"><i
+                        class="material-icons right"></i>Vider mon panier</a>
             </div>
 
-            <div id="supp_panier">
-                <a onclick='ValidPanier()' class="waves-effect waves-light btn " id="btnPanier"><i
-                        class="material-icons right">cloud</i>Valider ma commande</a>
+            <div id="valid_panier">
+                <a class="waves-effect waves-light btn " id="btnPanier"><i class="material-icons right"></i>Valider ma
+                    commande</a>
             </div>
 
 

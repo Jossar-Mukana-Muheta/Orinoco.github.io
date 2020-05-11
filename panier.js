@@ -1,51 +1,27 @@
-import {
-    RequetebddId
-} from "./requete.js"
+import { RequetebddId } from "./requete.js";
 
-let panier = localStorage.getItem('obj')
-let panierJson = JSON.parse(panier)
+let panier = localStorage.getItem("obj");
+let panierJson = JSON.parse(panier);
 
-
-let panierPage = document.getElementById('panier')
-let total = document.getElementById('total')
+let defautPage = document.getElementById("page_defaut");
+let panierImage = document.getElementById("panierImage");
+let panierResume = document.getElementById("panierResume");
+let panierPage = document.getElementById("panier");
+let total = document.getElementById("total");
 
 function getProduitID() {
-
-    const getProduitIDs = new RequetebddId
-    getProduitIDs.getInformationId(panierJson.produit)
-        .then((responseText) => {
-
-
-            const prix = document.createElement('p')
-            total.appendChild(prix)
-            prix.setAttribute('class', 'prix')
-            prix.innerHTML = responseText.price
-            panierPage.setAttribute('class', 'produitAjouté')
-
-            const image = document.createElement('img')
-            panierPage.appendChild(image)
-            image.setAttribute('src', responseText.imageUrl)
-
-            const prixTotal = document.getElementById('prixTotal')
-            prixTotal.innerHTML = responseText.price * panierJson.quantite
-
-        })
-
+  const getProduitIDs = new RequetebddId();
+  getProduitIDs.getInformationId(panierJson.produit).then((responseText) => {
+    panierPage.style.display = "block";
+    defautPage.style.display = "none";
+    panierImage.setAttribute("src", responseText.imageUrl);
+    panierResume.innerHTML = responseText.description;
+  });
 }
 
+window.onload = getProduitID();
 
-window.onload = getProduitID()
-
-
-
-
-
-
-
-
-
-
-// supprimer panier 
+// supprimer panier
 /*suppPanier = () => {
     btnPanier = document.getElementById('btnPanier')
     localStorage.clear()
