@@ -64,26 +64,71 @@ optionChoice.addEventListener("change", function (e) {
     } else {
         btnValidation.setAttribute("disabled", "");
     }
-    console.log(optionChoiceValue);
 });
 
 quantiteChoice.addEventListener("change", function (e) {
     quantiteChoiceValue = e.target.value;
 });
 
-let panier = {};
 // Stockage quantité + option dans local storage
 btnValidation.addEventListener("click", function (e) {
-    panier = {
-        produit: id,
-        option: optionChoiceValue,
-        quantite: quantiteChoiceValue,
-    };
+    if (localStorage.length != 0) {
 
-    let panierJson = JSON.stringify(panier)
-    localStorage.setItem("obj", panierJson);
+        let jsonobjet = localStorage.getItem('obj')
+        let dejson = JSON.parse(jsonobjet)
 
-    btnValidation.setAttribute("href", "panier.html");
 
-    console.log(panierJson);
+        let obj = {
+            produit: id,
+            option: optionChoiceValue,
+            quantite: quantiteChoiceValue,
+        };
+
+
+
+        dejson.push(obj);
+
+        let objLinea = JSON.stringify(dejson);
+        localStorage.setItem("obj", objLinea);
+
+
+
+        console.log(dejson);
+        btnValidation.setAttribute("href", "panier.html");
+
+
+    } else {
+
+        let article = [];
+
+
+
+
+        let obj = {
+            produit: id,
+            option: optionChoiceValue,
+            quantite: quantiteChoiceValue,
+        }
+
+
+
+        article.push(obj);
+
+        let objLinea = JSON.stringify(article);
+        localStorage.setItem("obj", objLinea);
+
+        btnValidation.setAttribute("href", "panier.html");
+
+
+
+
+    }
+
+
+    /*let panierJson = JSON.stringify(obj1)
+        panier.push(localStorage.setItem("obj", panierJson))
+
+        btnValidation.setAttribute("href", "panier.html");
+
+        console.log(panierJson);*/
 });
