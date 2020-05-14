@@ -3,6 +3,14 @@ import {
 }
 from './requete.js';
 
+let icon = document.getElementById('iconPanier')
+
+if (localStorage.length > 0) {
+
+  icon.innerHTML = "*"
+} else {
+  icon.style.display = "none"
+}
 // navigation responsive
 document.addEventListener('DOMContentLoaded', function () {
   var elems = document.querySelectorAll('.sidenav')

@@ -1,13 +1,21 @@
-nav{
-    background-color: $colour-primary !important;
-    
-    #logo{
-        
-        margin-left: 10px;
-        height: 50px;
+nav {
+  background-color: $colour-primary !important;
 
-        @include desktop{
-            height: 70px;
-        }
+  #logo {
+    margin-left: 10px;
+    height: 50px !important;
+
+    @include desktop {
+      height: 70px !important;
     }
+  }
+}
+#iconPanier {
+  color: brown;
+  font-family: sans-serif;
+  font-weight: bold;
+  font-size: 40px;
+  position: absolute;
+  top: 0px;
+  right: 20px;
 }

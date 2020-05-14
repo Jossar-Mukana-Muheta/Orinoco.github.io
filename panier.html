@@ -2,126 +2,120 @@
 <html lang="fr">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link href="https://fonts.googleapis.com/css?family=Roboto:100,900i" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="css/style.css">
-    <!-- Compiled and minified CSS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <link href="https://fonts.googleapis.com/css?family=Roboto:100,900i" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+  <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+  <!-- Compiled and minified CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" />
 
-    <title>Orinico</title>
+  <title>Orinico</title>
 </head>
 
 <body>
+  <div class="container_page panier">
+    <header class="header">
+      <nav>
+        <div class="nav-wrapper">
+          <a href="index.html" class="brand-logo"><img id="logo" src="images/logo.png" alt="logo" /></a>
+          <a href="#" data-target="mobile-demo" class="sidenav-trigger"><img src="images/menu-black-18dp.svg" /></a>
 
-    <div class="container_page panier">
+          <ul class="right hide-on-med-and-down">
+            <li><a href="index.html">Accueil</a></li>
+            <li><a href="produits.html">Produits</a></li>
+            <li>
+              <a href="panier.html"><i class="material-icons">shopping_cart</i><span id="iconPanier"></span></a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+      <ul class="sidenav" id="mobile-demo">
+        <li><a href="index.html">Accueil</a></li>
+        <li><a href="produits.html">Produits</a></li>
+        <li><a href="panier.html.html">Votre Panier</a></li>
+      </ul>
+    </header>
 
-        <header class="header">
-            <nav>
-                <div class="nav-wrapper">
-                    <a href="index.html" class="brand-logo"><img id="logo" src="images/logo.png" alt="logo"></a>
-                    <a href="#" data-target="mobile-demo" class="sidenav-trigger"><img
-                            src="images/menu-black-18dp.svg"></a>
-                    <ul class="right hide-on-med-and-down">
-                        <li><a href="index.html">Accueil</a></li>
-                        <li><a href="produits.html">Produits</a></li>
-                        <li><a href="panier.html"><i class="material-icons">add_shopping_cart</i></a></li>
-                    </ul>
-                </div>
-            </nav>
-            <ul class="sidenav" id="mobile-demo">
-                <li><a href="index.html">Accueil</a></li>
-                <li><a href="produits.html">Produits</a></li>
-                <li><a href="panier.html.html">Votre Panier</a></li>
-            </ul>
-        </header>
+    <section id="page_defaut">
+      <h2>Mon panier</h2>
+      <p>votre panier est vide</p>
+      <div class="lds-ellipsis">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+      <p><a href="index.html">Visitez notre boutique</a></p>
+    </section>
 
-        <section id="page_defaut">
-            <h2>Mon panier</h2>
-            <p>votre panier est vide</p>
-            <div class="lds-ellipsis">
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-            </div>
-            <p><a href="index.html">Visitez notre boutique</a></p>
-        </section>
+    <section id="panier">
+      <div id="titre_panier">
+        <div>
+          <h2>Votre Panier</h2>
+        </div>
+        <div>
+          <p>Prix</p>
+        </div>
+      </div>
 
-        <section id="panier">
+      <div id="panierContenu">
 
-            <div id="titre_panier">
-                <div>
-                    <h2>Votre Panier</h2>
-                </div>
-                <div>
-                    <p>Prix</p>
-                </div>
-            </div>
+      </div>
+      <div>
+        <p id="totalPanier">Sous-total (<span id="quantitéTotal"></span> <span id="pluriel"></span>) : <span
+            id="prixTotal">28 €</span>
+        </p>
+      </div>
+      <div id="formulaire_container">
+        <p id="formulaire_titre">
+          Merci de compléter les informations suivantes
+        </p>
+        <form action="" method="POST" id="formulaire">
+          <input type="text" id="nom" required />
+          <label for="nom">Votre Nom</label>
 
+          <input type="text" id="Prénom" required />
+          <label for="Prénom">Votre Prénom</label>
 
+          <input type="text" id="adresse" required />
+          <label for="adresse">Votre adresse</label>
 
-            <div id="formulaire_container">
-                <form action="" method="POST" id="formulaire">
+          <input type="text" id="ville" required />
+          <label for="ville">Votre ville </label>
 
-                    <input type="text" id="nom" required>
-                    <label for="nom">Votre Nom</label>
+          <input type="email" id="email" required />
+          <label for="email">Votre email </label>
 
-                    <input type="text" id="Prénom" required>
-                    <label for="Prénom">Votre Prénom</label>
+          <input id="valider" type="submit" value="VALIDER LA COMMANDE" />
+        </form>
+      </div>
 
+      <div id="supp_panier">
+        <a class="waves-effect waves-light btn btn-large-red" id="btnPanier"><i class="material-icons right"></i>Vider
+          mon panier</a>
+      </div>
+    </section>
+    <footer>
+      <div class="footer-copyright">
+        <p>© 2020 Copyright MMJ</p>
+      </div>
+      <div class="footer-content">
+        <p>Contactez-nous pour plus d'informations</p>
+      </div>
+      <div class="footer-social">
+        <a class="social" href="https://twitter.com/MJossar"><i class="fa fa-twitter"></i></a>
+        <a class="social" href="tel:+33760402282"><i class="fa fa-phone"></i></a>
+        <a class="social" href="mailto:mukanamj.devpro@gmail.com"><i class="fa fa-envelope"></i></a>
+      </div>
+    </footer>
+  </div>
 
-                    <input type="text" id="adresse" required>
-                    <label for="adresse">Votre adresse</label>
-
-
-                    <input type="text" id="ville" required>
-                    <label for="ville">Votre ville </label>
-
-
-                    <input type="email" id="email" required>
-                    <label for="email">Votre email </label>
-
-                    <input id="valider" type="submit" value="VALIDER LA COMMANDE">
-
-                </form>
-            </div>
-
-
-            <div id="supp_panier">
-                <a class="waves-effect waves-light btn btn-large-red" id="btnPanier"><i
-                        class="material-icons right"></i>Vider mon panier</a>
-            </div>
-
-
-
-
-        </section>
-        <footer>
-            <div class="footer-copyright">
-                <p>© 2020 Copyright MMJ </p>
-            </div>
-            <div class="footer-content">
-                <p>Contactez-nous pour plus d'informations</p>
-            </div>
-            <div class="footer-social">
-                <a class="social" href="https://twitter.com/MJossar"><i class="fa fa-twitter"></i></a>
-                <a class="social" href="tel:+33760402282"><i class="fa fa-phone"></i></a>
-                <a class="social" href="mailto:mukanamj.devpro@gmail.com"><i class="fa fa-envelope"></i></a>
-            </div>
-        </footer>
-
-    </div>
-
-
-
-
-    <script type="module" src="panier.js"></script>
-    <!-- Compiled and minified JavaScript -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  <script type="module" src="panier.js"></script>
+  <!-- Compiled and minified JavaScript -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 </body>
 
 </html>

@@ -23,7 +23,7 @@
           const xhr = new XMLHttpRequest()
           xhr.open('GET', 'http://localhost:3000/api/cameras/' + id)
           xhr.onload = () => resolve(JSON.parse(xhr.responseText))
-          xhr.onerror = () => reject()
+          xhr.onerror = () => reject(error)
           xhr.send()
       });
 

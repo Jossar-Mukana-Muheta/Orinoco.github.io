@@ -186,12 +186,22 @@ nav {
 }
 nav #logo {
   margin-left: 10px;
-  height: 50px;
+  height: 50px !important;
 }
 @media screen and (min-width: 601px) {
   nav #logo {
-    height: 70px;
+    height: 70px !important;
   }
+}
+
+#iconPanier {
+  color: brown;
+  font-family: sans-serif;
+  font-weight: bold;
+  font-size: 40px;
+  position: absolute;
+  top: 0px;
+  right: 20px;
 }
 
 .container_page {
@@ -201,7 +211,7 @@ nav #logo {
 }
 
 #formulaire {
-  margin-left: 25%;
+  margin-left: 5%;
   margin-right: 25%;
   display: flex;
   flex-direction: column;
@@ -452,11 +462,18 @@ footer .social {
 }
 @media screen and (min-width: 601px) {
   .container_page.panier #titre_panier {
-    margin-inline-start: 20%;
-    margin-inline-end: 20%;
+    margin-inline-start: 10%;
+    margin-inline-end: 10%;
   }
 }
-.container_page.panier #panierProduit {
+.container_page.panier #titre_panier h2 {
+  font-weight: 700 !important;
+  font-size: 21px !important;
+  line-height: 1.3;
+  color: #111 !important;
+  font-family: sans-serif;
+}
+.container_page.panier .panierProduit {
   display: flex;
   justify-content: space-between;
   margin-inline-start: 5px;
@@ -464,22 +481,19 @@ footer .social {
   border-bottom: solid 1px lightgray;
 }
 @media screen and (min-width: 601px) {
-  .container_page.panier #panierProduit {
-    margin-inline-start: 20%;
-    margin-inline-end: 20%;
-  }
-}
-@media screen and (min-width: 601px) {
-  .container_page.panier #panierProduit {
+  .container_page.panier .panierProduit {
+    margin-inline-start: 10%;
+    margin-inline-end: 10%;
     align-items: center;
   }
 }
-.container_page.panier img {
+.container_page.panier .panierProduit img {
   height: 30px;
 }
 @media screen and (min-width: 601px) {
-  .container_page.panier img {
-    height: 54px;
+  .container_page.panier .panierProduit img {
+    height: 180px;
+    width: 256px;
     padding-top: 10px;
   }
 }
@@ -490,26 +504,76 @@ footer .social {
 .container_page.panier #valid_panier {
   text-align: center;
 }
-.container_page.panier #panierResume {
+.container_page.panier .resumeText {
   font-size: 13px;
-  margin-right: 5px;
-  margin-left: 5px;
-  max-height: 40px;
+  margin-right: 20px;
+  margin-left: 20px;
   overflow: scroll;
+  line-height: 14px;
+  margin-bottom: 10px;
 }
 @media screen and (min-width: 601px) {
-  .container_page.panier #panierResume {
-    font-size: 20px;
+  .container_page.panier .resumeText {
+    font-size: 17px;
+    max-height: max-content;
   }
 }
-.container_page.panier #panierPrix {
+.container_page.panier .resumeTitre {
+  color: #0066c0;
+  text-transform: uppercase;
+  margin-right: 20px;
+  margin-left: 20px;
+  font-weight: 700;
+}
+.container_page.panier .resumeTitre:hover {
+  color: brown;
+  text-decoration: underline;
+}
+.container_page.panier .produitOption {
+  margin-right: 20px;
+  margin-left: 20px;
+  color: #0066c0;
+  font-size: 13px;
+  font-weight: 700;
+}
+.container_page.panier .produitQuantite {
+  color: brown;
+  margin-right: 20px;
+  margin-left: 20px;
+  font-weight: 700;
+  font-size: 15px;
+}
+.container_page.panier .prixPanier {
   font-size: 13px;
   font-weight: bold;
+  color: brown;
+  font-weight: 700;
+  white-space: nowrap;
+  font-style: italic;
 }
 @media screen and (min-width: 601px) {
-  .container_page.panier #panierPrix {
-    font-size: 20px;
+  .container_page.panier .prixPanier {
+    font-size: 17px;
   }
+}
+.container_page.panier #prixTotal {
+  color: brown;
+  padding-right: 5px;
+}
+.container_page.panier .containerImage {
+  padding-top: 30px;
+}
+.container_page.panier #totalPanier {
+  text-align: right;
+}
+.container_page.panier #formulaire_container {
+  margin-top: 50px;
+  margin-bottom: 20px;
+}
+.container_page.panier #formulaire_titre {
+  text-align: center;
+  color: #75B1A9;
+  font-weight: 800;
 }
 
 /*# sourceMappingURL=style.css.map */

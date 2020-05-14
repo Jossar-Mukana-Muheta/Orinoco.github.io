@@ -2,6 +2,31 @@ import {
     RequetebddId
 } from "./requete.js";
 
+let icon = document.getElementById('iconPanier')
+
+if (localStorage.length > 0) {
+
+    icon.innerHTML = "*"
+} else {
+    icon.style.display = "none"
+}
+// navigation responsive
+document.addEventListener('DOMContentLoaded', function () {
+    var elems = document.querySelectorAll('.sidenav')
+    var instances = M.Sidenav.init(elems, {
+        edge: 'left',
+        draggable: true,
+        inDuration: 250,
+        outDuration: 200,
+        onOpenStart: null,
+        onOpenEnd: null,
+        onCloseStart: null,
+        onCloseEnd: null,
+        preventScrolling: true
+    })
+})
+
+
 //Recuperer id passé dans l'url
 const queryString = window.location.search;
 const urlParams = new URLSearchParams(queryString);
@@ -12,39 +37,45 @@ const pageDefault = document.getElementById("page_defaut");
 
 pageProduit.style.display = "none";
 
+
+
 // Récuperer et affiché élement correspondant à l'ID
 function getProduitID() {
     const getProduitIDs = new RequetebddId();
-    getProduitIDs.getInformationId(id).then((responseText) => {
-        const titre = responseText.name;
-        const image = responseText.imageUrl;
-        const prix = responseText.price;
-        const description = responseText.description;
-        const optionList = responseText.lenses;
+    getProduitIDs.getInformationId(id)
+        .then((responseText) => {
+            const titre = responseText.name;
+            const image = responseText.imageUrl;
+            const prix = responseText.price;
+            const description = responseText.description;
+            const optionList = responseText.lenses;
 
-        let titreProduit = document.getElementById("titre_produit");
-        let imgProduitChoisit = document.getElementById("produit_choisit");
-        let descriptionProduitChoisit = document.getElementById("description");
-        let prixProduitChoisit = document.getElementById("prix");
-        let lentille = document.getElementById("lentille-select");
+            let titreProduit = document.getElementById("titre_produit");
+            let imgProduitChoisit = document.getElementById("produit_choisit");
+            let descriptionProduitChoisit = document.getElementById("description");
+            let prixProduitChoisit = document.getElementById("prix");
+            let lentille = document.getElementById("lentille-select");
 
-        // récuperer option + affichage liste déroulante
-        const optionTableau = optionList;
-        for (let i = 0; i < optionTableau.length; i++) {
-            let option = document.createElement("option");
-            lentille.appendChild(option);
-            option.setAttribute("value", optionTableau[i]);
-            option.innerHTML = optionTableau[i];
-        }
+            // récuperer option + affichage liste déroulante
+            const optionTableau = optionList;
+            for (let i = 0; i < optionTableau.length; i++) {
+                let option = document.createElement("option");
+                lentille.appendChild(option);
+                option.setAttribute("value", optionTableau[i]);
+                option.innerHTML = optionTableau[i];
+            }
 
-        imgProduitChoisit.setAttribute("src", image);
-        prixProduitChoisit.innerHTML = prix + " €";
-        descriptionProduitChoisit.innerHTML = description;
-        titreProduit.innerHTML = titre;
+            imgProduitChoisit.setAttribute("src", image);
+            prixProduitChoisit.innerHTML = prix + " €";
+            descriptionProduitChoisit.innerHTML = description;
+            titreProduit.innerHTML = titre;
 
-        pageProduit.style.display = "flex";
-        pageDefault.style.display = "none";
-    });
+            pageProduit.style.display = "flex";
+            pageDefault.style.display = "none";
+        })
+        .catch((error) => {
+            pageDefault.style.display = "inline";
+        });
 }
 
 window.onload = getProduitID();
@@ -93,7 +124,7 @@ btnValidation.addEventListener("click", function (e) {
 
 
 
-        console.log(dejson);
+
         btnValidation.setAttribute("href", "panier.html");
 
 
