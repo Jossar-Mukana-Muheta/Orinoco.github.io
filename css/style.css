@@ -179,8 +179,13 @@ input {
 }
 
 #ajout_panier {
-  margin-top: 20px;
+  margin-top: 40px;
   text-align: center;
+}
+@media screen and (min-width: 601px) {
+  #ajout_panier {
+    margin-top: 20px;
+  }
 }
 
 #btnPanier {
@@ -217,7 +222,12 @@ nav a {
 .container_page {
   display: grid;
   grid-template-rows: 0.1fr 2fr 0.1fr;
-  row-gap: 10px;
+  row-gap: 20px;
+}
+@media screen and (min-width: 601px) {
+  .container_page {
+    row-gap: 10px;
+  }
 }
 
 #formulaire {
@@ -261,7 +271,7 @@ nav a {
 
 footer {
   display: flex !important;
-  background-color: white;
+  background-color: #039be5;
   flex-direction: column;
   align-items: center;
   width: 100%;
@@ -277,12 +287,12 @@ footer {
 }
 footer p {
   text-align: center;
-  font-size: 16px;
-  color: #000000;
+  color: #fff !important;
   font-weight: 700;
+  margin: 10px;
 }
 footer .social {
-  color: #fff;
+  color: #fff !important;
 }
 
 .option_produit label,
@@ -391,9 +401,8 @@ footer .social {
   text-align: center !important;
   display: flex;
   justify-content: center;
-}
-.container_page.produits #page_defaut h2 {
-  margin-top: 200px !important;
+  flex-direction: column;
+  align-items: center;
 }
 .container_page.produits #produits_page {
   display: flex;
@@ -488,9 +497,10 @@ footer .social {
 
 .container_page.panier #page_defaut {
   text-align: center;
-}
-.container_page.panier #page_defaut h2 {
-  margin-top: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 .container_page.panier #panier {
   display: none;
@@ -585,7 +595,11 @@ footer .social {
 }
 .container_page.panier #totalPanier {
   text-align: right !important;
-  margin-inline-end: 10%;
+}
+@media screen and (min-width: 601px) {
+  .container_page.panier #totalPanier {
+    margin-inline-end: 10%;
+  }
 }
 .container_page.panier #totalPanier #pluriel,
 .container_page.panier #totalPanier #quantitéTotal {

@@ -11,6 +11,7 @@ if (localStorage.length > 0) {
 } else {
   icon.style.display = "none"
 }
+
 // navigation responsive
 document.addEventListener('DOMContentLoaded', function () {
   var elems = document.querySelectorAll('.sidenav')

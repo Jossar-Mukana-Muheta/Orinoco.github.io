@@ -7,8 +7,12 @@
 }
 
 #ajout_panier {
-  margin-top: 20px;
+  margin-top: 40px;
   text-align: center;
+
+  @include desktop {
+    margin-top: 20px;
+  }
 }
 
 #btnPanier {

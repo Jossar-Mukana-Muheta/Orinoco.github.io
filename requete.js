@@ -8,7 +8,7 @@ class Requetebdd {
                 if (this.readyState == 4 && this.status == 200) {
                     resolve(JSON.parse(xhr.responseText));
                 } else if (this.readyState == 4 && this.status != 200) {
-                    reject();
+                    reject(this.status);
 
                 } else {}
             };
@@ -41,11 +41,11 @@ class RequetebddId {
 
 class PostRequette {
     // Envoie éléments vers BDD
-    postInformation = () => {
+    postInformation = (data) => {
         const xhr = new XMLHttpRequest();
         xhr.open("POST", "http://localhost:3000/api/cameras/order");
         xhr.setRequestHeader("Content-Type", "application/json");
-        xhr.send(JSON.stringify(jsonBody));
+        xhr.send(data);
     };
 }
 

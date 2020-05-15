@@ -1,5 +1,9 @@
 .container_page {
   display: grid;
   grid-template-rows: 0.1fr 2fr 0.1fr;
-  row-gap: 10px;
+  row-gap: 20px;
+
+  @include desktop {
+    row-gap: 10px;
+  }
 }

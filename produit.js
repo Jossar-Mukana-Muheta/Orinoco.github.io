@@ -73,8 +73,10 @@ function getProduitID() {
             pageProduit.style.display = "flex";
             pageDefault.style.display = "none";
         })
-        .catch((error) => {
-            location.href = "notFound.html";
+        .catch(() => {
+
+
+
         });
 }
 

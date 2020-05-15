@@ -1,10 +1,10 @@
 .container_page.panier {
   #page_defaut {
     text-align: center;
-
-    h2 {
-      margin-top: 200px;
-    }
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
   }
 
   #panier {
@@ -112,7 +112,10 @@
 
   #totalPanier {
     text-align: right !important;
-    margin-inline-end: 10%;
+
+    @include desktop {
+      margin-inline-end: 10%;
+    }
 
     #pluriel,
     #quantitéTotal {

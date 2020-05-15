@@ -1,6 +1,8 @@
 import {
-  RequetebddId
+  RequetebddId,
+  PostRequette
 } from "./requete.js";
+
 
 let icon = document.getElementById('iconPanier')
 
@@ -32,7 +34,8 @@ let panierJson = JSON.parse(panier);
 let total = [];
 let quantiteTableau = []
 
-function getProduitID() {
+
+function getProduitID(callback) {
   let defautPage = document.getElementById("page_defaut");
   let containerPanier = document.getElementById("panier");
   let PanierContenu = document.getElementById("panierContenu");
@@ -56,6 +59,7 @@ function getProduitID() {
         let panierImage = document.createElement("img");
         containerImage.appendChild(panierImage);
         panierImage.setAttribute("src", responseText.imageUrl);
+        panierImage.setAttribute("alt", "appareil photo")
 
         let panierResumeDiv = document.createElement("div");
         panierProduit.appendChild(panierResumeDiv);
@@ -129,6 +133,10 @@ function getProduitID() {
         } else {
           pluriel.innerHTML = "article"
         }
+
+
+        callback();
+
       })
       .catch((error) => {
         let panierVideText = document.getElementById('panierVideText')
@@ -142,11 +150,56 @@ function getProduitID() {
   }
 
 
+
+
 }
 
 
 
 window.onload = getProduitID();
+//Validation formulaire 
+
+
+// récupération élément produit 
+let productTab = [];
+let products = new FormData()
+for (let i = 0; i < panierJson.length; i++) {
+
+  products = new FormData()
+  productTab.push(panierJson[i].produit)
+  products.append("id", productTab)
+
+}
+
+// récupération élement formulaire
+
+let formulaire = document.getElementById('formulaire')
+let contactTab
+let contact
+
+
+formulaire.addEventListener('change', function (e) {
+  contactTab = new FormData(formulaire)
+  contact = JSON.stringify(contactTab)
+})
+
+let valider = document.getElementById('valider')
+
+valider.addEventListener('click', function (e) {
+
+  const PostProduit = new PostRequette(products)
+  const PostFormulaire = new PostRequette(contact)
+
+})
+
+console.log(productTab)
+console.log(products.get('id'))
+console.log(contact)
+
+
+
+
+
 
 
 // Vider panier 
@@ -159,10 +212,3 @@ btnPanierSupp.addEventListener('click', function (e) {
   }
 
 })
-
-
-//Validation formulaire 
-
-let nom = document.getElementById('nom')
-let prenom = document.getElementById('prénom')
-let ville = document.getElementById('ville')
