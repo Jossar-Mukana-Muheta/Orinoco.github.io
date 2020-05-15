@@ -1,6 +1,10 @@
 .container_page.panier {
   #page_defaut {
     text-align: center;
+
+    h2 {
+      margin-top: 200px;
+    }
   }
 
   #panier {
@@ -21,9 +25,6 @@
     }
 
     h2 {
-      font-weight: 700 !important;
-      font-size: 21px !important;
-      line-height: 1.3;
       color: #111 !important;
       font-family: sans-serif;
     }
@@ -63,17 +64,9 @@
   }
 
   .resumeText {
-    font-size: 13px;
     margin-right: 20px;
     margin-left: 20px;
-    overflow: scroll;
-    line-height: 14px;
     margin-bottom: 10px;
-
-    @include desktop {
-      font-size: 17px;
-      max-height: max-content;
-    }
   }
 
   .resumeTitre {
@@ -81,8 +74,7 @@
     text-transform: uppercase;
     margin-right: 20px;
     margin-left: 20px;
-    font-weight: 700;
-
+    font-family: sans-serif;
     &:hover {
       color: brown;
       text-decoration: underline;
@@ -93,33 +85,25 @@
     margin-right: 20px;
     margin-left: 20px;
     color: #0066c0;
-    font-size: 13px;
-    font-weight: 700;
   }
 
   .produitQuantite {
     color: brown;
     margin-right: 20px;
     margin-left: 20px;
-    font-weight: 700;
-    font-size: 15px;
   }
 
   .prixPanier {
-    font-size: 13px;
-    font-weight: bold;
     color: brown;
-    font-weight: 700;
+
     white-space: nowrap;
-    font-style: italic;
-    @include desktop {
-      font-size: 17px;
-    }
+    font-family: sans-serif;
   }
 
   #prixTotal {
     color: brown;
     padding-right: 5px;
+    font-family: sans-serif;
   }
 
   .containerImage {
@@ -127,17 +111,39 @@
   }
 
   #totalPanier {
-    text-align: right;
+    text-align: right !important;
+    margin-inline-end: 10%;
+
+    #pluriel,
+    #quantitéTotal {
+      color: #0066c0;
+    }
   }
 
   #formulaire_container {
     margin-top: 50px;
     margin-bottom: 20px;
+    margin-inline-start: 5px;
+    margin-inline-end: 5px;
+
+    @include desktop {
+      margin-inline-start: 10%;
+      margin-inline-end: 10%;
+    }
   }
 
   #formulaire_titre {
-    text-align: center;
-    color: $colour_primary;
-    font-weight: 800;
+    text-align: left;
+    color: #0066c0;
+
+    font-family: sans-serif;
+    text-decoration: dashed solid 1px blink;
+    border-bottom: gray 1px solid;
+  }
+
+  label {
+    font-size: 13px;
+    color: black;
+    font-weight: 900;
   }
 }

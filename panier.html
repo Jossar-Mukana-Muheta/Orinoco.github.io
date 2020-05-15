@@ -41,14 +41,14 @@
 
     <section id="page_defaut">
       <h2>Mon panier</h2>
-      <p>votre panier est vide</p>
+      <p id="panierVideText">votre panier est vide</p>
       <div class="lds-ellipsis">
         <div></div>
         <div></div>
         <div></div>
         <div></div>
       </div>
-      <p><a href="index.html">Visitez notre boutique</a></p>
+      <p><a id="lienPanierVide" href="index.html">Visitez notre boutique</a></p>
     </section>
 
     <section id="panier">
@@ -71,25 +71,32 @@
       </div>
       <div id="formulaire_container">
         <p id="formulaire_titre">
-          Merci de compléter les informations suivantes
+          Addresse de livraion
         </p>
         <form action="" method="POST" id="formulaire">
-          <input type="text" id="nom" required />
+
+
+          <input type="text" pattern="[A-Za-z]" id="nom" required placeholder="Entrer votre nom" />
           <label for="nom">Votre Nom</label>
 
-          <input type="text" id="Prénom" required />
+
+          <input type="text" id="Prénom" required placeholder="Entrer votre Prénom" />
           <label for="Prénom">Votre Prénom</label>
 
-          <input type="text" id="adresse" required />
+
+          <input type="text" id="adresse" required placeholder="Entrer votre Addresse" />
           <label for="adresse">Votre adresse</label>
 
-          <input type="text" id="ville" required />
+
+          <input type="text" id="ville" required placeholder="Entrer votre ville" />
           <label for="ville">Votre ville </label>
 
-          <input type="email" id="email" required />
+
+          <input type="email" id="email" required placeholder="Entrer votre adresse mail" />
           <label for="email">Votre email </label>
 
-          <input id="valider" type="submit" value="VALIDER LA COMMANDE" />
+
+          <input id="valider" type="submit" value="Valider" />
         </form>
       </div>
 

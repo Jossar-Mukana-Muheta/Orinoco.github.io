@@ -74,7 +74,7 @@ function getProduitID() {
             pageDefault.style.display = "none";
         })
         .catch((error) => {
-            pageDefault.style.display = "inline";
+            location.href = "notFound.html";
         });
 }
 

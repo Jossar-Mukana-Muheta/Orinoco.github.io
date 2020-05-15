@@ -1,3 +1,4 @@
+@charset "UTF-8";
 /**************** media quieries */
 .lds-hourglass {
   display: inline-block;
@@ -45,8 +46,8 @@
   width: 13px;
   height: 13px;
   border-radius: 50%;
-  border: 10px solid #0000;
-  border-color: #75B1A9;
+  border: 10px solid black !important;
+  border-color: black;
   animation-timing-function: cubic-bezier(0, 1, 1, 0);
 }
 
@@ -112,65 +113,66 @@ body {
 
 body {
   font-family: "Roboto", sans-serif;
-  font-size: 2rem;
-  font-weight: 100;
-  line-height: 1.7;
+  font-size: 14px;
+  line-height: 1.25em;
+}
+@media screen and (min-width: 601px) {
+  body {
+    font-size: 16px;
+    line-height: 1.375em;
+  }
 }
 
 h1 {
   font-family: "Roboto", sans-serif;
   font-weight: 900;
-  font-size: 2.2rem !important;
-  font-style: italic;
-  color: #D9B44A;
+  font-size: 32px;
+  line-height: 1.25em;
+  color: #c13c27;
 }
 @media screen and (min-width: 601px) {
   h1 {
-    font-size: 4.2rem !important;
+    font-size: 48px !important;
+    line-height: 1.05em;
   }
 }
 
 h2 {
-  font-size: 1.56rem !important;
-  color: #4F6457;
-  font-weight: 600 !important;
+  font-size: 26px !important;
+  line-height: 1.15384615em;
+  color: black;
+  font-weight: 400 !important;
 }
 @media screen and (min-width: 601px) {
   h2 {
-    font-size: 2.56rem !important;
+    font-size: 36px !important;
+    line-height: 1.25em;
   }
 }
 
-textarea {
-  font-family: "Roboto", sans-serif;
-  font-weight: 100;
-  font-size: 2rem;
-}
-
 button {
-  font-family: "Roboto", sans-serif;
+  font-family: sans-serif;
   font-weight: 900;
-  font-style: italic;
-  font-size: 2.75rem;
 }
 
 a:hover {
-  color: #D9B44A;
+  color: #c13c27;
   cursor: pointer;
   font-weight: bold;
 }
 
-p {
-  font-size: 13px;
-}
 @media screen and (min-width: 601px) {
-  p {
-    font-size: 25px;
+  i {
+    font-size: 31px !important;
   }
 }
 
+input {
+  font-size: 13px !important;
+}
+
 .btn-large {
-  background-color: #ACD0C0 !important;
+  background-color: #acd0c0 !important;
 }
 .btn-large-red {
   background-color: red !important;
@@ -181,8 +183,12 @@ p {
   text-align: center;
 }
 
+#btnPanier {
+  text-transform: none !important;
+}
+
 nav {
-  background-color: #75B1A9 !important;
+  background-color: white !important;
 }
 nav #logo {
   margin-left: 10px;
@@ -192,6 +198,10 @@ nav #logo {
   nav #logo {
     height: 70px !important;
   }
+}
+nav a {
+  color: black !important;
+  font-family: sans-serif;
 }
 
 #iconPanier {
@@ -213,8 +223,15 @@ nav #logo {
 #formulaire {
   margin-left: 5%;
   margin-right: 25%;
+  margin-top: 10px;
   display: flex;
   flex-direction: column;
+}
+@media screen and (min-width: 601px) {
+  #formulaire {
+    margin-right: 60%;
+    margin-top: 50px;
+  }
 }
 #formulaire input {
   margin-top: 10px;
@@ -224,17 +241,17 @@ nav #logo {
   margin-top: 20px;
 }
 #formulaire #valider {
+  margin-top: 30px !important;
   width: max-content;
-  font-size: 14px;
+  font-size: 15px;
   padding: 5px;
   border-radius: 2px;
   margin-top: 10px;
-  background-color: #75B1A9;
+  background-color: #26a69a;
   color: white;
   transform: scale(1);
   transition: 1000ms ease-in-out;
-  box-shadow: #75B1A9 2px 1px 4px;
-  text-transform: to-upper-case;
+  box-shadow: #57a9f1de 2px 1px 4px;
   border: 0px;
 }
 #formulaire #valider:hover {
@@ -244,7 +261,7 @@ nav #logo {
 
 footer {
   display: flex !important;
-  background-color: #75B1A9;
+  background-color: white;
   flex-direction: column;
   align-items: center;
   width: 100%;
@@ -280,9 +297,12 @@ footer .social {
   font-size: 0.9rem;
   padding: 2px 5px;
   display: inline;
-  background-color: #75B1A9;
+  background-color: white;
 }
 
+.container_page.home a {
+  color: #0066c0;
+}
 @media screen and (min-width: 601px) {
   .container_page.home section.home_page {
     margin-left: 15%;
@@ -291,6 +311,8 @@ footer .social {
 }
 .container_page.home h1 {
   text-align: center;
+  margin-top: 0px;
+  margin-bottom: 0px;
 }
 .container_page.home .slogan {
   text-align: center;
@@ -316,7 +338,7 @@ footer .social {
 .container_page.home article .produits_page__option {
   margin: 14px;
   border: solid 1px rgba(79, 100, 87, 0.06);
-  background-color: rgba(172, 208, 192, 0.12);
+  background-color: whitesmoke;
 }
 @media screen and (min-width: 601px) {
   .container_page.home article .produits_page__option {
@@ -343,28 +365,20 @@ footer .social {
   opacity: 0.8;
 }
 .container_page.home article p {
-  font-size: 13px;
   font-weight: bold;
 }
 .container_page.home article .prix {
-  color: #D9B44A;
-  font-style: italic;
+  color: #c13c27;
+  font-weight: 500;
+  font-family: sans-serif;
+  margin-top: 10px;
 }
 .container_page.home article .card-image {
   overflow: hidden;
 }
 .container_page.home article .presentation {
-  color: #4F6457;
+  color: black;
   margin-block-start: 0em;
-  font-size: 16px;
-}
-.container_page.home article a {
-  font-size: 20px;
-}
-@media screen and (min-width: 601px) {
-  .container_page.home article a {
-    font-size: 25px !important;
-  }
 }
 .container_page.home aside {
   min-width: 30%;
@@ -373,6 +387,14 @@ footer .social {
   text-align: center;
 }
 
+.container_page.produits #page_defaut {
+  text-align: center !important;
+  display: flex;
+  justify-content: center;
+}
+.container_page.produits #page_defaut h2 {
+  margin-top: 200px !important;
+}
 .container_page.produits #produits_page {
   display: flex;
   justify-content: center;
@@ -419,11 +441,12 @@ footer .social {
   }
 }
 .container_page.produits #produits_page #produits_page__option #produit_choisit {
-  max-height: 300px;
+  max-height: 200px;
 }
 @media screen and (min-width: 601px) {
   .container_page.produits #produits_page #produits_page__option #produit_choisit {
     width: 60%;
+    max-height: 300px;
   }
 }
 .container_page.produits #produits_page #produits_page__option p {
@@ -435,19 +458,39 @@ footer .social {
   }
 }
 .container_page.produits #produits_page #produits_page__option #prix {
-  color: #D9B44A;
+  color: #c13c27;
+  font-family: sans-serif;
+  border-bottom: lightgray solid 1px;
+  padding-bottom: 6px;
 }
 .container_page.produits #produits_page .option_produit label {
-  color: #D9B44A;
+  color: #c13c27;
 }
-.container_page.produits #produits_page #page_defaut {
+.container_page.produits #produits_page #titre_produit {
+  margin-bottom: 10px;
+  color: #0066c0;
+  font-family: sans-serif;
+  font-weight: 300;
   text-align: center;
-  display: flex;
-  justify-content: center;
+}
+.container_page.produits #produits_page #description {
+  margin: 10px;
+}
+.container_page.produits #produits_page #option {
+  margin-bottom: 70px;
+}
+.container_page.produits #produits_page #lentille-select {
+  margin-top: 20px;
+}
+.container_page.produits input {
+  border-bottom-color: #0066c0 !important;
 }
 
 .container_page.panier #page_defaut {
   text-align: center;
+}
+.container_page.panier #page_defaut h2 {
+  margin-top: 200px;
 }
 .container_page.panier #panier {
   display: none;
@@ -467,9 +510,6 @@ footer .social {
   }
 }
 .container_page.panier #titre_panier h2 {
-  font-weight: 700 !important;
-  font-size: 21px !important;
-  line-height: 1.3;
   color: #111 !important;
   font-family: sans-serif;
 }
@@ -505,25 +545,16 @@ footer .social {
   text-align: center;
 }
 .container_page.panier .resumeText {
-  font-size: 13px;
   margin-right: 20px;
   margin-left: 20px;
-  overflow: scroll;
-  line-height: 14px;
   margin-bottom: 10px;
-}
-@media screen and (min-width: 601px) {
-  .container_page.panier .resumeText {
-    font-size: 17px;
-    max-height: max-content;
-  }
 }
 .container_page.panier .resumeTitre {
   color: #0066c0;
   text-transform: uppercase;
   margin-right: 20px;
   margin-left: 20px;
-  font-weight: 700;
+  font-family: sans-serif;
 }
 .container_page.panier .resumeTitre:hover {
   color: brown;
@@ -533,47 +564,63 @@ footer .social {
   margin-right: 20px;
   margin-left: 20px;
   color: #0066c0;
-  font-size: 13px;
-  font-weight: 700;
 }
 .container_page.panier .produitQuantite {
   color: brown;
   margin-right: 20px;
   margin-left: 20px;
-  font-weight: 700;
-  font-size: 15px;
 }
 .container_page.panier .prixPanier {
-  font-size: 13px;
-  font-weight: bold;
   color: brown;
-  font-weight: 700;
   white-space: nowrap;
-  font-style: italic;
-}
-@media screen and (min-width: 601px) {
-  .container_page.panier .prixPanier {
-    font-size: 17px;
-  }
+  font-family: sans-serif;
 }
 .container_page.panier #prixTotal {
   color: brown;
   padding-right: 5px;
+  font-family: sans-serif;
 }
 .container_page.panier .containerImage {
   padding-top: 30px;
 }
 .container_page.panier #totalPanier {
-  text-align: right;
+  text-align: right !important;
+  margin-inline-end: 10%;
+}
+.container_page.panier #totalPanier #pluriel,
+.container_page.panier #totalPanier #quantitéTotal {
+  color: #0066c0;
 }
 .container_page.panier #formulaire_container {
   margin-top: 50px;
   margin-bottom: 20px;
+  margin-inline-start: 5px;
+  margin-inline-end: 5px;
+}
+@media screen and (min-width: 601px) {
+  .container_page.panier #formulaire_container {
+    margin-inline-start: 10%;
+    margin-inline-end: 10%;
+  }
 }
 .container_page.panier #formulaire_titre {
-  text-align: center;
-  color: #75B1A9;
-  font-weight: 800;
+  text-align: left;
+  color: #0066c0;
+  font-family: sans-serif;
+  text-decoration: dashed solid 1px blink;
+  border-bottom: gray 1px solid;
+}
+.container_page.panier label {
+  font-size: 13px;
+  color: black;
+  font-weight: 900;
+}
+
+.error {
+  background-image: url("/images/romson-preechawit-Vy2cHqm0mCs-unsplash.jpg");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
 }
 
 /*# sourceMappingURL=style.css.map */

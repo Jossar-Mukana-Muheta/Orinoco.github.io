@@ -1,11 +1,10 @@
-$colour-primary: #75B1A9;
-$colour-secondary: #D9B44A;
-$colour-accent: #4F6457;
-$colour-third: #ACD0C0;
+$colour-primary: white;
+$colour-secondary: #c13c27;
+$colour-accent: black;
+$colour-third: #acd0c0;
 $colour-white: #fff;
 
-
-/**************** media quieries */////////////////////////////
+/**************** media quieries */ ////////////////////////////
 $breakpoints: (
-  desktop : 601px
+  desktop: 601px,
 );

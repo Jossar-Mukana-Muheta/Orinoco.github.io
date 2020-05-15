@@ -1,59 +1,56 @@
 body {
-    font-family: 'Roboto', sans-serif;
-    font-size: 2rem;
-    font-weight: 100;
-    line-height: 1.7;
+  font-family: "Roboto", sans-serif;
+  font-size: 14px;
+  line-height: 1.25em;
+
+  @include desktop {
+    font-size: 16px;
+    line-height: 1.375em;
+  }
 }
 
 h1 {
-    font-family: 'Roboto', sans-serif;
-    font-weight: 900;
-    font-size: 2.2rem !important;
-    font-style: italic;
-    color: $colour-secondary;
+  font-family: "Roboto", sans-serif;
+  font-weight: 900;
+  font-size: 32px;
+  line-height: 1.25em;
+  color: $colour-secondary;
 
-    @include desktop{
-        font-size: 4.2rem !important;
-    }
-
-}
-    
-h2{
-    font-size: 1.56rem !important; 
-    color: $colour-accent;
-    font-weight: 600 !important;
-
-    @include desktop{
-        font-size: 2.56rem !important;
-    }
+  @include desktop {
+    font-size: 48px !important;
+    line-height: 1.05em;
+  }
 }
 
-    
+h2 {
+  font-size: 26px !important;
+  line-height: 1.15384615em;
+  color: $colour-accent;
+  font-weight: 400 !important;
 
-textarea {
-    font-family: 'Roboto', sans-serif;
-    font-weight: 100;
-    font-size: 2rem;
+  @include desktop {
+    font-size: 36px !important;
+    line-height: 1.25em;
+  }
 }
 
 button {
-    font-family: 'Roboto', sans-serif;
-    font-weight: 900;
-    font-style: italic;
-    font-size: 2.75rem;
+  font-family: sans-serif;
+  font-weight: 900;
 }
 
-a:hover{
-    color: $colour-secondary;
-    cursor: pointer;
-    font-weight: bold;
+a:hover {
+  color: $colour-secondary;
+  cursor: pointer;
+  font-weight: bold;
 }
 
-p{
-    //mobile
-    font-size: 13px;
+i {
+  @include desktop {
+    font-size: 31px !important;
+  }
+}
 
-    @include desktop{
-        font-size: 25px;
-    }
+input {
+  font-size: 13px !important    ;
 }

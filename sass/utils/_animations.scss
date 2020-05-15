@@ -42,8 +42,8 @@
   width: 13px;
   height: 13px;
   border-radius: 50%;
-  border: 10px solid #0000;
-  border-color: $colour-primary;
+  border: 10px solid black !important;
+  border-color: black;
   animation-timing-function: cubic-bezier(0, 1, 1, 0);
 }
 .lds-ellipsis div:nth-child(1) {

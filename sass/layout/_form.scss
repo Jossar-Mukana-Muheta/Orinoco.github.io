@@ -1,9 +1,14 @@
 #formulaire {
   margin-left: 5%;
   margin-right: 25%;
-
+  margin-top: 10px;
   display: flex;
   flex-direction: column;
+
+  @include desktop {
+    margin-right: 60%;
+    margin-top: 50px;
+  }
 
   input {
     margin-top: 10px;
@@ -15,17 +20,17 @@
   }
 
   #valider {
+    margin-top: 30px !important;
     width: max-content;
-    font-size: 14px;
+    font-size: 15px;
     padding: 5px;
     border-radius: 2px;
     margin-top: 10px;
-    background-color: $colour_primary;
+    background-color: #26a69a;
     color: white;
     transform: scale(1);
     transition: 1000ms ease-in-out;
-    box-shadow: $colour-primary 2px 1px 4px;
-    text-transform: to-upper-case;
+    box-shadow: #57a9f1de 2px 1px 4px;
     border: 0px;
   }
 

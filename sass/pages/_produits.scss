@@ -1,4 +1,13 @@
 .container_page.produits {
+  #page_defaut {
+    text-align: center !important;
+    display: flex;
+    justify-content: center;
+
+    h2 {
+      margin-top: 200px !important;
+    }
+  }
   #produits_page {
     display: flex;
     justify-content: center;
@@ -48,10 +57,10 @@
       }
 
       #produit_choisit {
-        max-height: 300px;
-
+        max-height: 200px;
         @include desktop {
           width: 60%;
+          max-height: 300px;
         }
       }
 
@@ -65,6 +74,9 @@
 
       #prix {
         color: $colour_secondary;
+        font-family: sans-serif;
+        border-bottom: lightgray solid 1px;
+        padding-bottom: 6px;
       }
     }
 
@@ -76,10 +88,28 @@
       }
     }
 
-    #page_defaut {
+    #titre_produit {
+      margin-bottom: 10px;
+      color: #0066c0;
+      font-family: sans-serif;
+      font-weight: 300;
       text-align: center;
-      display: flex;
-      justify-content: center;
     }
+
+    #description {
+      margin: 10px;
+    }
+
+    #option {
+      margin-bottom: 70px;
+    }
+
+    #lentille-select {
+      margin-top: 20px;
+    }
+  }
+
+  input {
+    border-bottom-color: #0066c0 !important;
   }
 }

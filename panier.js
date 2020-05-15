@@ -40,8 +40,7 @@ function getProduitID() {
 
   for (let i = 0; i < panierJson.length; i++) {
     const getProduitIDs = new RequetebddId();
-    getProduitIDs
-      .getInformationId(panierJson[i].produit)
+    getProduitIDs.getInformationId(panierJson[i].produit)
       .then((responseText) => {
         containerPanier.style.display = "block";
         defautPage.style.display = "none";
@@ -130,6 +129,15 @@ function getProduitID() {
         } else {
           pluriel.innerHTML = "article"
         }
+      })
+      .catch((error) => {
+        let panierVideText = document.getElementById('panierVideText')
+        panierVideText.innerHTML = "Erreur de chargement du panier"
+
+        let lienPanierVide = document.getElementById('lienPanierVide')
+        lienPanierVide.innerHTML = "Recharger la page"
+        lienPanierVide.setAttribute('href',
+          'panier.html')
       });
   }
 
@@ -144,10 +152,17 @@ window.onload = getProduitID();
 // Vider panier 
 let btnPanierSupp = document.getElementById('btnPanier')
 btnPanierSupp.addEventListener('click', function (e) {
-  alert("Confirmer suppression ?")
-  if (alert) {
+  prompt("Confirmer suppression ?")
+  if (prompt) {
     localStorage.clear();
     btnPanierSupp.setAttribute('href', 'index.html')
   }
 
 })
+
+
+//Validation formulaire 
+
+let nom = document.getElementById('nom')
+let prenom = document.getElementById('prénom')
+let ville = document.getElementById('ville')
