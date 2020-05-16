@@ -21,19 +21,23 @@ const shoppingIconNav = () => {
     let tableauQuantite = []
     let quantite
     let resultatTotal
-    for (let i = 0; i < panierJson.length; i++) {
-        // récupération des quantité de chaque produit
-        quantite = panierJson[i].quantite
-        // insertion des quantité dans le tableau + modification string en nombre
-        tableauQuantite.push(parseInt(quantite))
-        resultatTotal = tableauQuantite.reduce(myFunc)
+    if (panierJson) {
 
-        function myFunc(tableauQuantite, num) {
-            return tableauQuantite + num;
+        for (let i = 0; i < panierJson.length; i++) {
+            // récupération des quantité de chaque produit
+            quantite = panierJson[i].quantite
+            // insertion des quantité dans le tableau + modification string en nombre
+            tableauQuantite.push(parseInt(quantite))
+            resultatTotal = tableauQuantite.reduce(myFunc)
+
+            function myFunc(tableauQuantite, num) {
+                return tableauQuantite + num;
+            }
+
+            icon.innerHTML = resultatTotal
         }
-
-        icon.innerHTML = resultatTotal
     }
+
 }
 // if (localStorage.length > 0) {
 
