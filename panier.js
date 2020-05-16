@@ -3,30 +3,14 @@ import {
   PostRequette
 } from "./requete.js";
 
+import {
+  responsiveNav,
+  shoppingIconNav
+} from './main.js'
 
-let icon = document.getElementById('iconPanier')
+var quantiteAddition
+var quantiteProduit
 
-if (localStorage.length > 0) {
-
-  icon.innerHTML = "*"
-} else {
-  icon.style.display = "none"
-}
-// navigation responsive
-document.addEventListener('DOMContentLoaded', function () {
-  var elems = document.querySelectorAll('.sidenav')
-  var instances = M.Sidenav.init(elems, {
-    edge: 'left',
-    draggable: true,
-    inDuration: 250,
-    outDuration: 200,
-    onOpenStart: null,
-    onOpenEnd: null,
-    onCloseStart: null,
-    onCloseEnd: null,
-    preventScrolling: true
-  })
-})
 
 
 let panier = localStorage.getItem("obj");
@@ -35,7 +19,8 @@ let total = [];
 let quantiteTableau = []
 
 
-function getProduitID(callback) {
+
+function getProduitID() {
   let defautPage = document.getElementById("page_defaut");
   let containerPanier = document.getElementById("panier");
   let PanierContenu = document.getElementById("panierContenu");
@@ -115,10 +100,10 @@ function getProduitID(callback) {
 
 
         //calcul de la quantité d'article
-        let quantiteProduit = parseInt(panierJson[i].quantite)
+        quantiteProduit = parseInt(panierJson[i].quantite)
 
         quantiteTableau.push(quantiteProduit)
-        let quantiteAddition = quantiteTableau.reduce(myFunc2)
+        quantiteAddition = quantiteTableau.reduce(myFunc2)
 
         function myFunc2(total, num) {
           return parseInt(total + num)
@@ -135,7 +120,7 @@ function getProduitID(callback) {
         }
 
 
-        callback();
+
 
       })
       .catch((error) => {
@@ -153,6 +138,7 @@ function getProduitID(callback) {
 
 
 }
+
 
 
 
@@ -192,16 +178,6 @@ valider.addEventListener('click', function (e) {
 
 })
 
-console.log(productTab)
-console.log(products.get('id'))
-console.log(contact)
-
-
-
-
-
-
-
 // Vider panier 
 let btnPanierSupp = document.getElementById('btnPanier')
 btnPanierSupp.addEventListener('click', function (e) {
@@ -212,3 +188,6 @@ btnPanierSupp.addEventListener('click', function (e) {
   }
 
 })
+
+// navigation responsive et onglet nombre de produit sur onglet shopping
+window.onload = responsiveNav(), window.onload = shoppingIconNav()

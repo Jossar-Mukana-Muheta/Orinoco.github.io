@@ -2,29 +2,11 @@ import {
     RequetebddId
 } from "./requete.js";
 
-let icon = document.getElementById('iconPanier')
+import {
+    responsiveNav,
+    shoppingIconNav
+} from './main.js'
 
-if (localStorage.length > 0) {
-
-    icon.innerHTML = "*"
-} else {
-    icon.style.display = "none"
-}
-// navigation responsive
-document.addEventListener('DOMContentLoaded', function () {
-    var elems = document.querySelectorAll('.sidenav')
-    var instances = M.Sidenav.init(elems, {
-        edge: 'left',
-        draggable: true,
-        inDuration: 250,
-        outDuration: 200,
-        onOpenStart: null,
-        onOpenEnd: null,
-        onCloseStart: null,
-        onCloseEnd: null,
-        preventScrolling: true
-    })
-})
 
 
 //Recuperer id passé dans l'url
@@ -157,11 +139,7 @@ btnValidation.addEventListener("click", function (e) {
 
     }
 
-
-    /*let panierJson = JSON.stringify(obj1)
-        panier.push(localStorage.setItem("obj", panierJson))
-
-        btnValidation.setAttribute("href", "panier.html");
-
-        console.log(panierJson);*/
 });
+
+// navigation responsive et onglet nombre de produit sur onglet shopping
+window.onload = responsiveNav(), shoppingIconNav()

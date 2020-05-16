@@ -1,32 +1,14 @@
 import {
   Requetebdd
-}
-from './requete.js';
+} from './requete.js';
 
-let icon = document.getElementById('iconPanier')
+import {
+  responsiveNav,
+  shoppingIconNav
+} from './main.js'
 
-if (localStorage.length > 0) {
 
-  icon.innerHTML = "*"
-} else {
-  icon.style.display = "none"
-}
 
-// navigation responsive
-document.addEventListener('DOMContentLoaded', function () {
-  var elems = document.querySelectorAll('.sidenav')
-  var instances = M.Sidenav.init(elems, {
-    edge: 'left',
-    draggable: true,
-    inDuration: 250,
-    outDuration: 200,
-    onOpenStart: null,
-    onOpenEnd: null,
-    onCloseStart: null,
-    onCloseEnd: null,
-    preventScrolling: true
-  })
-})
 
 // Création loader
 let presentationProduit = document.getElementById('presentation_produit')
@@ -109,3 +91,6 @@ getProduct.getAllInformation()
     newPrice.setAttribute('href', 'index.html')
     newPrice.innerHTML = 'clickez pour recharger'
   })
+
+// navigation responsive et onglet nombre de produit sur onglet shopping
+window.onload = responsiveNav(), shoppingIconNav()

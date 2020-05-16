@@ -213,10 +213,10 @@ nav a {
   color: brown;
   font-family: sans-serif;
   font-weight: bold;
-  font-size: 40px;
+  font-size: 20px;
   position: absolute;
-  top: 0px;
-  right: 20px;
+  top: -16px;
+  right: 11px;
 }
 
 .container_page {

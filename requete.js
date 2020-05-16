@@ -3,18 +3,15 @@ class Requetebdd {
     getAllInformation = () =>
         new Promise((resolve, reject) => {
             const xhr = new XMLHttpRequest();
-
             xhr.onreadystatechange = function () {
                 if (this.readyState == 4 && this.status == 200) {
                     resolve(JSON.parse(xhr.responseText));
                 } else if (this.readyState == 4 && this.status != 200) {
-                    reject(this.status);
+                    reject();
 
                 } else {}
             };
             xhr.open("GET", "http://localhost:3000/api/cameras/");
-            //xhr.onload = () => resolve(JSON.parse(xhr.responseText))
-            //xhr.onerror = () => reject()
             xhr.send();
         });
 
@@ -31,7 +28,6 @@ class RequetebddId {
                     resolve(JSON.parse(xhr.responseText));
                 } else if (this.readyState == 4 && this.status != 200) {
                     reject();
-
                 } else {}
             };
             xhr.open("GET", "http://localhost:3000/api/cameras/" + id);
