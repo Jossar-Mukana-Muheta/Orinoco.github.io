@@ -163,7 +163,6 @@ let formulaire = document.getElementById('formulaire')
 let contactTab
 let contact
 
-
 formulaire.addEventListener('change', function (e) {
   contactTab = new FormData(formulaire)
   contact = JSON.stringify(contactTab)
@@ -171,10 +170,16 @@ formulaire.addEventListener('change', function (e) {
 
 let valider = document.getElementById('valider')
 
-valider.addEventListener('click', function (e) {
+//Valider panier
+valider.addEventListener('submit', function (e) {
 
-  const PostProduit = new PostRequette(products)
-  const PostFormulaire = new PostRequette(contact)
+  const postProduit = new PostRequette()
+  const postFormulaire = new PostRequette()
+
+  postProduit(products)
+  postFormulaire(contact)
+
+  location.href = "confirmation.html"
 
 })
 
