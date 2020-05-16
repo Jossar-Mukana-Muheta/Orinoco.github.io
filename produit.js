@@ -87,9 +87,10 @@ quantiteChoice.addEventListener("change", function (e) {
 
 // Stockage quantité + option dans local storage
 btnValidation.addEventListener("click", function (e) {
-    if (localStorage.length != 0) {
+    if (localStorage.getItem('obj')) {
 
-        let jsonobjet = localStorage.getItem('obj')
+        console.log(localStorage.getItem('obj'))
+
         let dejson = JSON.parse(jsonobjet)
 
 
@@ -98,7 +99,6 @@ btnValidation.addEventListener("click", function (e) {
             option: optionChoiceValue,
             quantite: quantiteChoiceValue,
         };
-
 
 
         dejson.push(obj);
