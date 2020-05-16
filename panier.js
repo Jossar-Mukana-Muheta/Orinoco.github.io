@@ -181,10 +181,12 @@ valider.addEventListener('click', function (e) {
 // Vider panier 
 let btnPanierSupp = document.getElementById('btnPanier')
 btnPanierSupp.addEventListener('click', function (e) {
-  prompt("Confirmer suppression ?")
-  if (prompt) {
+  var r = confirm("Confirmer suppression ?")
+  if (r == true) {
     localStorage.clear();
     btnPanierSupp.setAttribute('href', 'index.html')
+  } else {
+
   }
 
 })
