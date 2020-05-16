@@ -91,7 +91,7 @@ btnValidation.addEventListener("click", function (e) {
 
         console.log(localStorage.getItem('obj'))
 
-        let dejson = JSON.parse(jsonobjet)
+        let objJson = JSON.parse(localStorage.getItem('obj'))
 
 
         let obj = {
@@ -101,10 +101,10 @@ btnValidation.addEventListener("click", function (e) {
         };
 
 
-        dejson.push(obj);
+        objJson.push(obj);
 
-        let objLinea = JSON.stringify(dejson);
-        localStorage.setItem("obj", objLinea);
+        let objString = JSON.stringify(objJson);
+        localStorage.setItem("obj", objString);
 
 
 

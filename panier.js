@@ -147,39 +147,37 @@ window.onload = getProduitID();
 
 
 // récupération élément produit 
-let productTab = [];
-let products = new FormData()
+let products = []
 for (let i = 0; i < panierJson.length; i++) {
 
-  products = new FormData()
-  productTab.push(panierJson[i].produit)
-  products.append("id", productTab)
+  // Création tableau products
+  products.push(panierJson[i].produit)
+
+
 
 }
 
 // récupération élement formulaire
 
 let formulaire = document.getElementById('formulaire')
-let contactTab
-let contact
 
-formulaire.addEventListener('change', function (e) {
-  contactTab = new FormData(formulaire)
-  contact = JSON.stringify(contactTab)
-})
+
+
+
+
+
+
+
+
+
+
 
 let valider = document.getElementById('valider')
 
 //Valider panier
-valider.addEventListener('submit', function (e) {
+valider.addEventListener('click', function (e) {
 
-  const postProduit = new PostRequette()
-  const postFormulaire = new PostRequette()
 
-  postProduit(products)
-  postFormulaire(contact)
-
-  location.href = "confirmation.html"
 
 })
 
