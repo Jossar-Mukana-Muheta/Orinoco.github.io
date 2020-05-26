@@ -1,5 +1,5 @@
 import {
-    RequetebddId
+    RequeteApi
 } from "./requete.js";
 
 import {
@@ -23,8 +23,8 @@ pageProduit.style.display = "none";
 
 // Récuperer et affiché élement correspondant à l'ID
 function getProduitID() {
-    const getProduitIDs = new RequetebddId();
-    getProduitIDs.getInformationId(id)
+    const getProduitIDs = new RequeteApi();
+    getProduitIDs.getProduct(id)
         .then((responseText) => {
             const titre = responseText.name;
             const image = responseText.imageUrl;
@@ -115,28 +115,15 @@ btnValidation.addEventListener("click", function (e) {
     } else {
 
         let article = [];
-
-
-
-
         let obj = {
             produit: id,
             option: optionChoiceValue,
             quantite: quantiteChoiceValue,
         }
-
-
-
         article.push(obj);
-
         let objLinea = JSON.stringify(article);
         localStorage.setItem("obj", objLinea);
-
         btnValidation.setAttribute("href", "panier.html");
-
-
-
-
     }
 
 });

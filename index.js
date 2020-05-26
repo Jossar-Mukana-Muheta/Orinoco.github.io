@@ -1,5 +1,5 @@
 import {
-  Requetebdd
+  RequeteApi
 } from './requete.js';
 
 import {
@@ -16,8 +16,8 @@ let newLoaders = document.createElement('div')
 presentationProduit.appendChild(newLoaders)
 newLoaders.setAttribute('class', 'lds-hourglass')
 
-var getProduct = new Requetebdd
-getProduct.getAllInformation()
+var getProduct = new RequeteApi
+getProduct.getProduct()
   .then((responseText) => {
     presentationProduit.removeChild(newLoaders)
     let list = document.getElementById('list_produits')

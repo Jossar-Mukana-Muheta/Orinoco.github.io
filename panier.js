@@ -1,6 +1,5 @@
 import {
-  RequetebddId,
-  PostRequette
+  RequeteApi,
 } from "./requete.js";
 
 import {
@@ -17,6 +16,8 @@ let panier = localStorage.getItem("obj");
 let panierJson = JSON.parse(panier);
 let total = [];
 let quantiteTableau = []
+// Récupération tableau id produits
+let products = []
 
 
 
@@ -29,8 +30,8 @@ function getProduitID() {
   if (panierJson) {
 
     for (let i = 0; i < panierJson.length; i++) {
-      const getProduitIDs = new RequetebddId();
-      getProduitIDs.getInformationId(panierJson[i].produit)
+      const getProduitIDs = new RequeteApi();
+      getProduitIDs.getProduct(panierJson[i].produit)
         .then((responseText) => {
           containerPanier.style.display = "block";
           defautPage.style.display = "none";
@@ -88,6 +89,9 @@ function getProduitID() {
           panierPrix.setAttribute("class", "prixPanier");
           panierPrix.innerHTML = responseText.price + " €";
 
+          // Ajout id produits au tableau
+          products.push(panierJson[i].produit)
+
 
           //Calcul du prix total 
           let totalPrice = panierJson[i].quantite * responseText.price;
@@ -120,10 +124,6 @@ function getProduitID() {
           } else {
             pluriel.innerHTML = "article"
           }
-
-
-
-
         })
         .catch((error) => {
           let panierVideText = document.getElementById('panierVideText')
@@ -137,61 +137,98 @@ function getProduitID() {
     }
 
   }
-
-
-
-
-
 }
-
-
-
-
 window.onload = getProduitID();
+
+
+
+
 //Validation formulaire 
 
+  let inputfirstName = document.getElementById('firstName')
+  let inputlastName = document.getElementById('lastName')
+  let inputaddress = document.getElementById('address')
+  let inputcity = document.getElementById('city')
+  let inputemail = document.getElementById('email')
 
-// récupération élément produit 
-let products = []
+  let firstNameX;
+  let lastNameX;
+  let addresseX;
+  let cityX
+  let emailX;
 
-if (panierJson) {
+  let contact = {}
 
-  for (let i = 0; i < panierJson.length; i++) {
+  inputfirstName.addEventListener('change', function(e){
+    firstNameX = e.target.value
+    contact.firstName = firstNameX
+    
+  })
+  inputlastName.addEventListener('change', function(e){
+    lastNameX = e.target.value
+    contact.lastName = lastNameX
+    
+  })
+  inputaddress.addEventListener('change', function(e){
+    addresseX = e.target.value
+    contact.address = addresseX
+  })
+  inputcity.addEventListener('change', function(e){
+    cityX = e.target.value
+    contact.city = cityX
+  })
+  inputemail.addEventListener('change', function(e){
+    emailX = e.target.value
+    contact.email = emailX
+  })
 
-    // Création tableau products
-    products.push(panierJson[i].produit)
+  
 
 
+//Valider panier
 
+let btnvalider = document.getElementById('valider')
+
+btnvalider.addEventListener('click', function(e){
+  e.preventDefault()
+  postData();
+})
+
+const postData = () =>{
+  
+  if(contact && products){
+
+    let data = {
+      contact,
+      products
+     }
+  
+    let  datajson = JSON.stringify(data)
+  
+     console.log(datajson)
+
+     let request = new RequeteApi
+     request.getProduct("",datajson)
+     .then((responseText)=>{
+        console.log(responseText)
+     }) 
+     
+
+    
+  
   }
+
+
 
 }
 
 
 
-// récupération élement formulaire
 
-let formulaire = document.getElementById('formulaire')
-
-
-
-
-
-
-
-
-
-
-
-
-let valider = document.getElementById('valider')
-
-//Valider panier
-valider.addEventListener('click', function (e) {
-
-
-
-})
+/*if(products && contact){
+  let post = new RequeteApi
+  post.getProduct("",contact, products)
+}*/
 
 // Vider panier 
 let btnPanierSupp = document.getElementById('btnPanier')

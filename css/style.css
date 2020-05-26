@@ -630,6 +630,18 @@ footer .social {
   font-weight: 900;
 }
 
+#box {
+  border: solid black 1px;
+  display: flex;
+  justify-content: space-between;
+  height: 40px;
+  width: 100px;
+  position: absolute;
+  top: 50%;
+  left: 49%;
+  z-index: 99;
+}
+
 .error {
   background-image: url("/images/romson-preechawit-Vy2cHqm0mCs-unsplash.jpg");
   background-size: contain;
