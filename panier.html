@@ -16,8 +16,8 @@
   <title>Orinico</title>
 </head>
 
-<body>
-  <div class="container_page panier">
+<body >
+  <div class="container_page panier" id="body">
     <header class="header">
       <nav>
         <div class="nav-wrapper">
@@ -108,8 +108,12 @@
           mon panier</a>
       </div>
       <div id="box">
-        <div><button id="confirmer">Confirmer</button></div>
-        <div><button id="annuler">Annuler</button></div>
+        <div><p>Voulez vraiment vider votre panier</p></br></div>
+        <div id="box_btn">
+          <div><button value="ok" id="confirmer">Confirmer</button></div>
+        <div><button value="ko" id="annuler">Annuler</button></div>
+        </div>
+        
         
       </div>
     </section>

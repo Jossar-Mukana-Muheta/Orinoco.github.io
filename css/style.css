@@ -631,15 +631,36 @@ footer .social {
 }
 
 #box {
+  visibility: hidden;
   border: solid black 1px;
   display: flex;
-  justify-content: space-between;
-  height: 40px;
-  width: 100px;
-  position: absolute;
-  top: 50%;
-  left: 49%;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  height: max-content;
+  padding: 20px;
+  width: 300px;
+  border-radius: 10px;
+  background-color: crimson;
+  position: fixed;
+  align-items: center;
+  top: 29vh;
+  left: 38vw;
   z-index: 99;
+}
+#box button {
+  padding: 3px;
+  margin: 5px;
+  border-radius: 3px;
+  cursor: pointer;
+}
+#box p {
+  color: white;
+  font-weight: 700;
+}
+#box #box_btn {
+  display: flex;
+  flex-direction: row;
 }
 
 .error {
