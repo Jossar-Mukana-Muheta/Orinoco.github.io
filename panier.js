@@ -128,51 +128,76 @@ function getProduitID() {
 }
 window.onload = getProduitID();
 
-//Validation formulaire
+//  ---------------- Validation formulaire
 
+
+// Récupération des input du formulaire
 let inputfirstName = document.getElementById("firstName");
 let inputlastName = document.getElementById("lastName");
 let inputaddress = document.getElementById("address");
 let inputcity = document.getElementById("city");
 let inputemail = document.getElementById("email");
 
-let firstNameX;
-let lastNameX;
-let addresseX;
-let cityX;
-let emailX;
+// Initialisation value input formulaire
+let firstNameValue;
+let lastNameValue;
+let addresseValue;
+let cityValue;
+let emailValue;
 
+// Initialisation objet contact pour envoie API
 let contact = {};
 
+
 inputfirstName.addEventListener("change", function (e) {
-  firstNameX = e.target.value;
-  contact.firstName = firstNameX;
+  firstNameValue = e.target.value;
+  contact.firstName = firstNameValue;
 });
 inputlastName.addEventListener("change", function (e) {
-  lastNameX = e.target.value;
-  contact.lastName = lastNameX;
+  lastNameValue = e.target.value;
+  contact.lastName = lastNameValue;
 });
 inputaddress.addEventListener("change", function (e) {
-  addresseX = e.target.value;
-  contact.address = addresseX;
+  addresseValue = e.target.value;
+  contact.address = addresseValue;
 });
 inputcity.addEventListener("change", function (e) {
-  cityX = e.target.value;
-  contact.city = cityX;
+  cityValue = e.target.value;
+  contact.city = cityValue;
 });
 inputemail.addEventListener("change", function (e) {
-  emailX = e.target.value;
-  contact.email = emailX;
+  emailValue = e.target.value;
+  contact.email = emailValue;
 });
 
-//Valider panier
+// Validation donné saisi
 
-let btnvalider = document.getElementById("valider");
+let formulaire = document.formulaire
+let messageErreur = document.getElementById('erreurmessage')
 
-btnvalider.addEventListener("click", function (e) {
-  e.preventDefault();
-  postData();
-});
+console.log(formulaire)
+
+formulaire.addEventListener('submit', function(e){
+
+  for( let i = 0 ; i<= (formulaire.elements.length - 1) ; i++){
+    console.log(formulaire[i].value)
+    if(formulaire[i].value == ""){
+      formulaire[i].focus()
+      messageErreur.innerHTML = "Veulliez saisir tous les champs"
+      e.preventDefault()
+      
+    }
+  }
+
+})
+
+
+
+// ------------------- FIN
+
+
+
+
 
 const postData = () => {
   if (contact && products) {

@@ -629,6 +629,11 @@ footer .social {
   color: black;
   font-weight: 900;
 }
+.container_page.panier #erreurmessage {
+  color: red;
+  text-align: center;
+  padding-left: 50px;
+}
 
 #box {
   visibility: hidden;
