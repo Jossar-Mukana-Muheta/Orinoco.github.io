@@ -1,6 +1,6 @@
+import { responsiveNav, shoppingIconNav } from "./main.js";
 import { RequeteApi } from "./requete.js";
 
-import { responsiveNav, shoppingIconNav } from "./main.js";
 
 var quantiteAddition;
 var quantiteProduit;
@@ -130,49 +130,71 @@ window.onload = getProduitID();
 
 //Validation formulaire
 
+
+
 let inputfirstName = document.getElementById("firstName");
 let inputlastName = document.getElementById("lastName");
 let inputaddress = document.getElementById("address");
 let inputcity = document.getElementById("city");
 let inputemail = document.getElementById("email");
 
-let firstNameX;
-let lastNameX;
-let addresseX;
-let cityX;
-let emailX;
-
+let firstNameValue;
+let lastNameValue;
+let addresseValue;
+let cityValue;
+let emailValue;
+let getMessageErreur = document.getElementById('erreurFormulaire')
 let contact = {};
+let formulaire = document.formulaire
 
 inputfirstName.addEventListener("change", function (e) {
-  firstNameX = e.target.value;
-  contact.firstName = firstNameX;
+  firstNameValue = e.target.value;
+  contact.firstName = firstNameValue;
+  
+  
 });
 inputlastName.addEventListener("change", function (e) {
-  lastNameX = e.target.value;
-  contact.lastName = lastNameX;
+  lastNameValue = e.target.value;
+  contact.lastName = lastNameValue;
 });
 inputaddress.addEventListener("change", function (e) {
-  addresseX = e.target.value;
-  contact.address = addresseX;
+  addresseValue = e.target.value;
+  contact.address = addresseValue;
 });
 inputcity.addEventListener("change", function (e) {
-  cityX = e.target.value;
-  contact.city = cityX;
+  cityValue = e.target.value;
+  contact.city = cityValue;
 });
 inputemail.addEventListener("change", function (e) {
-  emailX = e.target.value;
-  contact.email = emailX;
+  emailValue = e.target.value;
+  contact.email = emailValue;
 });
 
-//Valider panier
+//Valider Formulaire + envoie élément API
 
-let btnvalider = document.getElementById("valider");
+let btnValidation = document.getElementById("valider");
 
-btnvalider.addEventListener("click", function (e) {
-  e.preventDefault();
-  postData();
-});
+btnValidation.addEventListener('onsubmit', function(e){
+  e.preventDefault()
+  
+  
+})
+
+
+
+const SendData = (formulaire) =>{
+  if(formulaire.firstName.value == ""){
+    alert('il faut saisir le champs')
+    console.log(formulaire.firstName.value)
+    return false 
+  }else{
+    e.preventDefault()
+    alert("bravo")
+  }
+  //postData();
+  //document.location.href = "confirmation.html";
+    //localStorage.clear();
+}
 
 const postData = () => {
   if (contact && products) {
@@ -226,6 +248,15 @@ btnPanierSupp.addEventListener("click", function (e) {
     cancelDelectPanier();
   });
 });
+
+// -----------------------> Fin 
+
+
+
+
+
+
+
 
 // navigation responsive et onglet nombre de produit sur onglet shopping
 (window.onload = responsiveNav()), (window.onload = shoppingIconNav());
