@@ -672,6 +672,16 @@ footer .social {
   flex-direction: row;
 }
 
+#confirmation {
+  text-align: center;
+}
+#confirmation #prix {
+  color: red;
+}
+#confirmation #id {
+  color: green;
+}
+
 .error {
   background-image: url("/images/romson-preechawit-Vy2cHqm0mCs-unsplash.jpg");
   background-size: contain;

@@ -4,6 +4,7 @@ import { responsiveNav, shoppingIconNav } from "./main.js";
 
 var getNombreProduits;
 var getQuantiteTotal;
+let prixPanierTotal;
 
 let panier = localStorage.getItem("obj");
 let panierJson = JSON.parse(panier);
@@ -16,7 +17,7 @@ function getProduitID() {
   let defautPage = document.getElementById("page_defaut");
   let containerPanier = document.getElementById("panier");
   let PanierContenu = document.getElementById("panierContenu");
-  let totalite;
+  
 
   if (panierJson) {
     for (let i = 0; i < panierJson.length; i++) {
@@ -87,13 +88,13 @@ function getProduitID() {
           //Calcul du prix total
           let totalPrice = panierJson[i].quantite * responseText.price;
           total.push(totalPrice);
-          totalite = total.reduce(myFunc);
+          prixPanierTotal = total.reduce(myFunc);
 
           function myFunc(total, num) {
             return total + num;
           }
           let totalPanier = document.getElementById("prixTotal");
-          totalPanier.innerHTML = totalite + " €";
+          totalPanier.innerHTML = prixPanierTotal + " €";
 
           //calcul de la quantité d'article
           getQuantiteTotal = parseInt(panierJson[i].quantite);
@@ -182,15 +183,8 @@ let btnValider = document.getElementById('valider')
 
 btnValider.addEventListener('click', function(e){
 console.log('submit')
-  for( let i = 0 ; i<= (formulaire.elements.length) ; i++){
-    if(formulaire[i].value == ""){
-      formulaire[i].focus()
-      messageErreur.innerHTML = "Veulliez saisir tous les champs"
-      
-      
-    }
-  }
-
+e.preventDefault()
+postData()
   
 })
 
@@ -211,12 +205,17 @@ const postData = () => {
     };
 
     let datajson = JSON.stringify(data);
-
-    console.log(datajson);
-
     let request = new RequeteApi();
     request.getProduct("", datajson).then((responseText) => {
       console.log(responseText);
+      localStorage.setItem('id', responseText.orderId)
+      localStorage.setItem('prixPanier', prixPanierTotal)
+      document.location.href="confirmation.html"
+      console.log(responseText.orderId);
+      let name = document.getElementById('name')
+      
+      
+
     });
   }
 };
