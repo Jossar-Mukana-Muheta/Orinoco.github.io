@@ -397,6 +397,16 @@ footer .social {
   text-align: center;
 }
 
+#confirmation {
+  text-align: center;
+}
+#confirmation #prix {
+  color: red;
+}
+#confirmation #id {
+  color: green;
+}
+
 .container_page.produits #page_defaut {
   text-align: center !important;
   display: flex;
