@@ -75,27 +75,30 @@
         <p id="formulaire_titre">
           Addresse de livraion
         </p>
-        <form  method="POST" id="formulaire" name="formulaire">
+        <form   id="formulaire" name="formulaire">
 
 
           <input name="firstName" type="text" id="firstName"  
-            placeholder="Entrer votre nom" />
+            placeholder="Entrer votre nom" required maxlength="20"  />
           <label for="nom">Votre Nom</label>
+          <span id="firstnameError"></span>
 
 
-          <input name="lastName" type="text" id="lastName"  placeholder="Entrer votre Prénom" />
+          <input name="lastName" type="text" id="lastName"  placeholder="Entrer votre Prénom"  maxlength="20" required/>
           <label for="Prénom">Votre Prénom</label>
+          <span id="lastnameError"></span>
 
 
-          <input name="address" type="text" id="address"  placeholder="Entrer votre Addresse" />
+          <input name="address" type="text" id="address"  placeholder="Entrer votre Addresse" required />
           <label for="adress">Votre adresse</label>
 
 
-          <input name="city" type="text" id="city"  placeholder="Entrer votre ville" />
+          <input name="city" type="text" id="city"  placeholder="Entrer votre ville"   maxlength="20" required/>
           <label for="city">Votre ville </label>
+          <span id="cityError"></span>
 
 
-          <input name="email" type="email" id="email"  placeholder="Entrer votre adresse mail" />
+          <input name="email" type="email" id="email"  placeholder="Entrer votre adresse mail" required />
           <label for="email">Votre email </label>
 
 

@@ -239,7 +239,7 @@ nav a {
 }
 @media screen and (min-width: 601px) {
   #formulaire {
-    margin-right: 60%;
+    margin-right: 45%;
     margin-top: 50px;
   }
 }
@@ -633,6 +633,10 @@ footer .social {
   color: red;
   text-align: center;
   padding-left: 50px;
+}
+.container_page.panier .errorMessage {
+  color: red;
+  font-weight: 900;
 }
 
 #box {

@@ -2,14 +2,14 @@ import { RequeteApi } from "./requete.js";
 
 import { responsiveNav, shoppingIconNav } from "./main.js";
 
-var quantiteAddition;
-var quantiteProduit;
+var getNombreProduits;
+var getQuantiteTotal;
 
 let panier = localStorage.getItem("obj");
 let panierJson = JSON.parse(panier);
 let total = [];
 let quantiteTableau = [];
-// Récupération tableau id produits
+// Initialisation tableau avec id des produits dans le panier pour envoie API
 let products = [];
 
 function getProduitID() {
@@ -96,20 +96,20 @@ function getProduitID() {
           totalPanier.innerHTML = totalite + " €";
 
           //calcul de la quantité d'article
-          quantiteProduit = parseInt(panierJson[i].quantite);
+          getQuantiteTotal = parseInt(panierJson[i].quantite);
 
-          quantiteTableau.push(quantiteProduit);
-          quantiteAddition = quantiteTableau.reduce(myFunc2);
+          quantiteTableau.push(getQuantiteTotal);
+          getNombreProduits = quantiteTableau.reduce(myFunc2);
 
           function myFunc2(total, num) {
             return parseInt(total + num);
           }
 
           let quantitéTotal = document.getElementById("quantitéTotal");
-          quantitéTotal.innerHTML = quantiteAddition;
+          quantitéTotal.innerHTML = getNombreProduits;
 
           let pluriel = document.getElementById("pluriel");
-          if (quantiteAddition > 1) {
+          if (getNombreProduits > 1) {
             pluriel.innerHTML = "articles";
           } else {
             pluriel.innerHTML = "article";
@@ -153,7 +153,7 @@ inputfirstName.addEventListener("change", function (e) {
   firstNameValue = e.target.value;
   contact.firstName = firstNameValue;
 });
-inputlastName.addEventListener("change", function (e) {
+inputlastName.addEventListener("input", function (e) {
   lastNameValue = e.target.value;
   contact.lastName = lastNameValue;
 });
@@ -175,21 +175,25 @@ inputemail.addEventListener("change", function (e) {
 let formulaire = document.formulaire
 let messageErreur = document.getElementById('erreurmessage')
 
-console.log(formulaire)
+let firstNameError = document.getElementById('firstnameError')
 
-formulaire.addEventListener('submit', function(e){
+let btnValider = document.getElementById('valider')
 
-  for( let i = 0 ; i<= (formulaire.elements.length - 1) ; i++){
-    console.log(formulaire[i].value)
+
+btnValider.addEventListener('click', function(e){
+console.log('submit')
+  for( let i = 0 ; i<= (formulaire.elements.length) ; i++){
     if(formulaire[i].value == ""){
       formulaire[i].focus()
       messageErreur.innerHTML = "Veulliez saisir tous les champs"
-      e.preventDefault()
+      
       
     }
   }
 
+  
 })
+
 
 
 
