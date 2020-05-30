@@ -1,22 +1,23 @@
-import { responsiveNav, shoppingIconNav } from "./main.js";
 import { RequeteApi } from "./requete.js";
 
+import { responsiveNav, shoppingIconNav } from "./main.js";
 
-var quantiteAddition;
-var quantiteProduit;
+var getNombreProduits;
+var getQuantiteTotal;
+let prixPanierTotal;
 
 let panier = localStorage.getItem("obj");
 let panierJson = JSON.parse(panier);
 let total = [];
 let quantiteTableau = [];
-// Récupération tableau id produits
+// Initialisation tableau avec id des produits dans le panier pour envoie API
 let products = [];
 
 function getProduitID() {
   let defautPage = document.getElementById("page_defaut");
   let containerPanier = document.getElementById("panier");
   let PanierContenu = document.getElementById("panierContenu");
-  let totalite;
+  
 
   if (panierJson) {
     for (let i = 0; i < panierJson.length; i++) {
@@ -87,29 +88,29 @@ function getProduitID() {
           //Calcul du prix total
           let totalPrice = panierJson[i].quantite * responseText.price;
           total.push(totalPrice);
-          totalite = total.reduce(myFunc);
+          prixPanierTotal = total.reduce(myFunc);
 
           function myFunc(total, num) {
             return total + num;
           }
           let totalPanier = document.getElementById("prixTotal");
-          totalPanier.innerHTML = totalite + " €";
+          totalPanier.innerHTML = prixPanierTotal + " €";
 
           //calcul de la quantité d'article
-          quantiteProduit = parseInt(panierJson[i].quantite);
+          getQuantiteTotal = parseInt(panierJson[i].quantite);
 
-          quantiteTableau.push(quantiteProduit);
-          quantiteAddition = quantiteTableau.reduce(myFunc2);
+          quantiteTableau.push(getQuantiteTotal);
+          getNombreProduits = quantiteTableau.reduce(myFunc2);
 
           function myFunc2(total, num) {
             return parseInt(total + num);
           }
 
           let quantitéTotal = document.getElementById("quantitéTotal");
-          quantitéTotal.innerHTML = quantiteAddition;
+          quantitéTotal.innerHTML = getNombreProduits;
 
           let pluriel = document.getElementById("pluriel");
-          if (quantiteAddition > 1) {
+          if (getNombreProduits > 1) {
             pluriel.innerHTML = "articles";
           } else {
             pluriel.innerHTML = "article";
@@ -128,32 +129,32 @@ function getProduitID() {
 }
 window.onload = getProduitID();
 
-//Validation formulaire
+//  ---------------- Validation formulaire
 
 
-
+// Récupération des input du formulaire
 let inputfirstName = document.getElementById("firstName");
 let inputlastName = document.getElementById("lastName");
 let inputaddress = document.getElementById("address");
 let inputcity = document.getElementById("city");
 let inputemail = document.getElementById("email");
 
+// Initialisation value input formulaire
 let firstNameValue;
 let lastNameValue;
 let addresseValue;
 let cityValue;
 let emailValue;
-let getMessageErreur = document.getElementById('erreurFormulaire')
+
+// Initialisation objet contact pour envoie API
 let contact = {};
-let formulaire = document.formulaire
+
 
 inputfirstName.addEventListener("change", function (e) {
   firstNameValue = e.target.value;
   contact.firstName = firstNameValue;
-  
-  
 });
-inputlastName.addEventListener("change", function (e) {
+inputlastName.addEventListener("input", function (e) {
   lastNameValue = e.target.value;
   contact.lastName = lastNameValue;
 });
@@ -170,31 +171,31 @@ inputemail.addEventListener("change", function (e) {
   contact.email = emailValue;
 });
 
-//Valider Formulaire + envoie élément API
+// Validation donné saisi
 
-let btnValidation = document.getElementById("valider");
+let formulaire = document.formulaire
+let messageErreur = document.getElementById('erreurmessage')
 
-btnValidation.addEventListener('onsubmit', function(e){
-  e.preventDefault()
-  
+let firstNameError = document.getElementById('firstnameError')
+
+let btnValider = document.getElementById('valider')
+
+
+btnValider.addEventListener('click', function(e){
+console.log('submit')
+e.preventDefault()
+postData()
   
 })
 
 
 
-const SendData = (formulaire) =>{
-  if(formulaire.firstName.value == ""){
-    alert('il faut saisir le champs')
-    console.log(formulaire.firstName.value)
-    return false 
-  }else{
-    e.preventDefault()
-    alert("bravo")
-  }
-  //postData();
-  //document.location.href = "confirmation.html";
-    //localStorage.clear();
-}
+
+// ------------------- FIN
+
+
+
+
 
 const postData = () => {
   if (contact && products) {
@@ -204,12 +205,17 @@ const postData = () => {
     };
 
     let datajson = JSON.stringify(data);
-
-    console.log(datajson);
-
     let request = new RequeteApi();
     request.getProduct("", datajson).then((responseText) => {
       console.log(responseText);
+      localStorage.setItem('id', responseText.orderId)
+      localStorage.setItem('prixPanier', prixPanierTotal)
+      document.location.href="confirmation.html"
+      console.log(responseText.orderId);
+      let name = document.getElementById('name')
+      
+      
+
     });
   }
 };
@@ -248,15 +254,6 @@ btnPanierSupp.addEventListener("click", function (e) {
     cancelDelectPanier();
   });
 });
-
-// -----------------------> Fin 
-
-
-
-
-
-
-
 
 // navigation responsive et onglet nombre de produit sur onglet shopping
 (window.onload = responsiveNav()), (window.onload = shoppingIconNav());
