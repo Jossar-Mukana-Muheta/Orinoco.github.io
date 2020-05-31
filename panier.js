@@ -162,6 +162,13 @@ btnValider.addEventListener("click", function(e){
   var inputs = formulaire 
   console.log(formulaire)
 
+  if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(formulaire["email"].value)){
+    return true
+  }else{
+    erreurmessage = "Veuillez entrer un email valide 'ex: muhetajossar@gmail.com' "
+  }
+
+  // traitement générique champs vide 
   for(let i=0; i<inputs.length; i++){
     if(!inputs[i].value){
       console.log(inputs.value)
@@ -172,13 +179,25 @@ btnValider.addEventListener("click", function(e){
     }
   }
 
+  /*const validEmail = () =>{
+
+    if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(formulaire["email"].value)){
+      return true
+    }else{
+      erreurmessage = "Veuillez entrer un email valide 'ex: muhetajossar@gmail.com' "
+    }
+
+  }*/
+
+  
+
   if(erreurmessage){
     e.preventDefault();
     erreurText.innerHTML = erreurmessage
     return false
   }else{
     e.preventDefault();
-  postData();
+    postData();
   }
 
 })
@@ -217,11 +236,11 @@ let btnPanierSupp = document.getElementById("btnPanier");
 btnPanierSupp.addEventListener("click", function (e) {
   e.preventDefault();
   let box = document.getElementById("box");
-  let body = document.getElementById("body");
+  let body = document.getElementById("panier");
   body.style.opacity = "0.5";
   body.style.zIndex = "1";
   box.style.visibility = "visible";
-  box.style.opacity = "1";
+  box.style.opacity = "1 !important";
   box.setAttribute("class", "alert");
 
   let confirmSupp = document.getElementById("confirmer");
