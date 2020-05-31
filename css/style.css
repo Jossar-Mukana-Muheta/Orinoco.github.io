@@ -639,7 +639,7 @@ footer .social {
   color: black;
   font-weight: 900;
 }
-.container_page.panier .erreurFormulaire {
+.container_page.panier #erreur {
   color: red;
   padding-left: 50px;
   text-align: center;

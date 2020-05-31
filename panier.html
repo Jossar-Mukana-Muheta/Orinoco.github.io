@@ -75,31 +75,32 @@
         <p id="formulaire_titre">
           Addresse de livraion
         </p>
-        <form  id="formulaire" name="formulaire" onsubmit="return SendData(this)">
+        <form  id="formulaire" name="formulaire" >
 
 
           <input  name="firstName" type="text" id="firstName"  
             placeholder="Entrer votre nom"  />
-          <label for="firstName">Votre Nom</label><span class="erreurFormulaire"></span>
+          <label for="firstName">Votre Nom</label>
 
 
           <input  name="lastName" type="text" id="lastName"  placeholder="Entrer votre Prénom" />
-          <label for="lastName">Votre Prénom</label><span class="erreurFormulaire"></span>
+          <label for="lastName">Votre Prénom</label>
 
 
           <input  name="address" type="text" id="address"  placeholder="Entrer votre Addresse" />
-          <label for="address">Votre adresse</label><span class="erreurFormulaire"></span>
+          <label for="address">Votre adresse</label>
 
 
           <input  name="city" type="text" id="city"  placeholder="Entrer votre ville" />
-          <label for="city">Votre ville </label><span class="erreurFormulaire"></span>
+          <label for="city">Votre ville </label>
 
 
           <input  name="email" type="email" id="email"  placeholder="Entrer votre adresse mail" />
-          <label for="email">Votre email </label><span class="erreurFormulaire"></span>
+          <label for="email">Votre email </label>
 
 
           <input id="valider" type="submit" value="Valider" /> 
+          <span id="erreur"></span>
         </form>
       </div>
 
