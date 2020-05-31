@@ -17,7 +17,6 @@ function getProduitID() {
   let defautPage = document.getElementById("page_defaut");
   let containerPanier = document.getElementById("panier");
   let PanierContenu = document.getElementById("panierContenu");
-  
 
   if (panierJson) {
     for (let i = 0; i < panierJson.length; i++) {
@@ -131,71 +130,67 @@ window.onload = getProduitID();
 
 //  ---------------- Validation formulaire
 
-
 // Récupération des input du formulaire
-let inputfirstName = document.getElementById("firstName");
-let inputlastName = document.getElementById("lastName");
-let inputaddress = document.getElementById("address");
-let inputcity = document.getElementById("city");
-let inputemail = document.getElementById("email");
-
-// Initialisation value input formulaire
-let firstNameValue;
-let lastNameValue;
-let addresseValue;
-let cityValue;
-let emailValue;
+let formulaire = document.forms["formulaire"];
 
 // Initialisation objet contact pour envoie API
 let contact = {};
 
-
-inputfirstName.addEventListener("change", function (e) {
-  firstNameValue = e.target.value;
-  contact.firstName = firstNameValue;
+formulaire["firstName"].addEventListener("change", function (e) {
+  contact.firstName = this.value;
 });
-inputlastName.addEventListener("input", function (e) {
-  lastNameValue = e.target.value;
-  contact.lastName = lastNameValue;
+formulaire["lastName"].addEventListener("input", function (e) {
+  contact.lastName = this.value;
 });
-inputaddress.addEventListener("change", function (e) {
-  addresseValue = e.target.value;
-  contact.address = addresseValue;
+formulaire["address"].addEventListener("change", function (e) {
+  contact.address = this.value;
 });
-inputcity.addEventListener("change", function (e) {
-  cityValue = e.target.value;
-  contact.city = cityValue;
+formulaire["city"].addEventListener("change", function (e) {
+  contact.city = this.value;
 });
-inputemail.addEventListener("change", function (e) {
-  emailValue = e.target.value;
-  contact.email = emailValue;
+formulaire["email"].addEventListener("change", function (e) {
+  contact.email = this.value;
 });
 
 // Validation donné saisi
+let btnValider = document.getElementById("valider");
 
-let formulaire = document.formulaire
-let messageErreur = document.getElementById('erreurmessage')
+btnValider.addEventListener("click", function(e){
+  var erreurmessage ;
+  let erreurText = document.getElementById('erreur')
 
-let firstNameError = document.getElementById('firstnameError')
+  var inputs = formulaire 
+  console.log(formulaire)
 
-let btnValider = document.getElementById('valider')
+  for(let i=0; i<inputs.length; i++){
+    if(!inputs[i].value){
+      console.log(inputs.value)
+      erreurmessage = "Veuillez renseigner tous les champs";
+      inputs[i].focus()
+      break
+      
+    }
+  }
 
+  if(erreurmessage){
+    e.preventDefault();
+    erreurText.innerHTML = erreurmessage
+    return false
+  }else{
+    e.preventDefault();
+  postData();
+  }
 
-btnValider.addEventListener('click', function(e){
-console.log('submit')
-e.preventDefault()
-postData()
-  
 })
 
 
 
 
+
+
+
+
 // ------------------- FIN
-
-
-
-
 
 const postData = () => {
   if (contact && products) {
@@ -208,14 +203,11 @@ const postData = () => {
     let request = new RequeteApi();
     request.getProduct("", datajson).then((responseText) => {
       console.log(responseText);
-      localStorage.setItem('id', responseText.orderId)
-      localStorage.setItem('prixPanier', prixPanierTotal)
-      document.location.href="confirmation.html"
+      localStorage.setItem("id", responseText.orderId);
+      localStorage.setItem("prixPanier", prixPanierTotal);
+      document.location.href = "confirmation.html";
       console.log(responseText.orderId);
-      let name = document.getElementById('name')
-      
-      
-
+      let name = document.getElementById("name");
     });
   }
 };
