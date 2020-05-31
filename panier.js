@@ -155,33 +155,37 @@ formulaire["email"].addEventListener("change", function (e) {
 // Validation donné saisi
 let btnValider = document.getElementById("valider");
 
-btnValider.addEventListener("click", function(e){
-  var erreurmessage ;
-  let erreurText = document.getElementById('erreur')
 
-  var inputs = formulaire 
-  console.log(formulaire)
+btnValider.addEventListener("click", function(e){
+  e.preventDefault()
+  let erreurmessage ;
+  let erreurmessageMail;
+  let erreurText = document.getElementById('erreur')
+  let mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+  let nameformat = /^([^0-9]*)$/
+  let inputs = formulaire 
+  
 
   for(let i=0; i<inputs.length; i++){
     if(!inputs[i].value){
       console.log(inputs.value)
-      erreurmessage = "Veuillez renseigner tous les champs";
+      erreurmessage = "Veuillez renseigner tous les champs" ;
       inputs[i].focus()
       break
-      
-    }
+    
   }
 
+}
   if(erreurmessage){
-    e.preventDefault();
     erreurText.innerHTML = erreurmessage
-    return false
+  }else if(nameformat.test(formulaire["firstName"].value)) {
+    console.log("nombre")
   }else{
-    e.preventDefault();
-  postData();
+    console.log("validé")
   }
+  
 
-})
+});
 
 
 
@@ -207,7 +211,7 @@ const postData = () => {
       localStorage.setItem("prixPanier", prixPanierTotal);
       document.location.href = "confirmation.html";
       console.log(responseText.orderId);
-      let name = document.getElementById("name");
+      
     });
   }
 };
