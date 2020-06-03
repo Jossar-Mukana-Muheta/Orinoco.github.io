@@ -242,9 +242,9 @@ let btnPanierSupp = document.getElementById("btnPanier");
 btnPanierSupp.addEventListener("click", function (e) {
   e.preventDefault();
   let box = document.getElementById("box");
-  let body = document.getElementById("body");
-  body.style.opacity = "0.5";
-  body.style.zIndex = "1";
+  let page = document.getElementById("panier");
+  page.style.opacity = "0.5";
+  page.style.zIndex = "1";
   box.style.visibility = "visible";
   box.style.opacity = "1";
   box.setAttribute("class", "alert");

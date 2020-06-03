@@ -176,8 +176,12 @@
       position: fixed;
       align-items: center;
       top: 29vh;
-      left: 38vw;
+      left: 18vw;
       z-index: 99;
+
+      @include desktop{
+        left: 38vw;
+      }
       
   
       button{

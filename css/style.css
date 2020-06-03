@@ -660,8 +660,13 @@ footer .social {
   position: fixed;
   align-items: center;
   top: 29vh;
-  left: 38vw;
+  left: 18vw;
   z-index: 99;
+}
+@media screen and (min-width: 601px) {
+  #box {
+    left: 38vw;
+  }
 }
 #box button {
   padding: 3px;
