@@ -154,48 +154,12 @@ formulaire["email"].addEventListener("change", function (e) {
 
 // Validation donné saisi
 let btnValider = document.getElementById("valider");
+let inputs = formulaire;
+let erreurmessage;
+let erreurmessageMail;
+let erreurText = document.getElementById("erreur");
 
-
-btnValider.addEventListener("click", function(e){
-  e.preventDefault()
-  let erreurmessage ;
-  let erreurmessageMail;
-  let erreurText = document.getElementById('erreur')
-  let mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
-  let nameformat = /^([^0-9]*)$/
-  let inputs = formulaire 
-  
-
-  for(let i=0; i<inputs.length; i++){
-    if(!inputs[i].value){
-      console.log(inputs.value)
-      erreurmessage = "Veuillez renseigner tous les champs" ;
-      inputs[i].focus()
-      break
-    
-  }
-
-}
-  if(erreurmessage){
-    erreurText.innerHTML = erreurmessage
-  }else if(nameformat.test(formulaire["firstName"].value)) {
-    console.log("nombre")
-  }else{
-    console.log("validé")
-  }
-  
-
-});
-
-
-
-
-
-
-
-
-// ------------------- FIN
-
+// Envoie donnés vers API
 const postData = () => {
   if (contact && products) {
     let data = {
@@ -211,10 +175,67 @@ const postData = () => {
       localStorage.setItem("prixPanier", prixPanierTotal);
       document.location.href = "confirmation.html";
       console.log(responseText.orderId);
-      
     });
   }
 };
+
+// Valider format name
+const validName = () => {
+  if (!/^[a-zA-Z ]+$/.test(formulaire["firstName"].value)) {
+    erreurText.innerHTML = "Veuillez n'utiliser que des lettres";
+    formulaire["firstName"].focus();
+  } else if (!/^[a-zA-Z ]+$/.test(formulaire["lastName"].value)) {
+    erreurText.innerHTML = "Veuillez n'utiliser que des lettres";
+    formulaire["lastName"].focus();
+  } else if(!/^[a-zA-Z ]+$/.test(formulaire["city"].value)) {
+    erreurText.innerHTML = "Veuillez n'utiliser que des lettres";
+    formulaire["city"].focus();
+  }else{
+    postData();
+  }
+};
+
+
+
+formulaire.addEventListener("submit", function (e) {
+  e.preventDefault();
+ 
+
+  // Validation champs remplis 
+  for (let i = 0; i < inputs.length; i++) {
+    if (!inputs[i].value) {
+      erreurmessage = "Veuillez renseigner tous les champs";
+      erreurText.innerHTML = erreurmessage;
+      inputs[i].focus();
+      e.preventDefault();
+      break;
+    } else {
+      validName();
+    }
+  }
+
+  /*
+  let mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+  
+   
+  
+
+  
+
+}
+  if(erreurmessage){
+    e.preventDefault()
+    return false
+    
+  }else{
+    console.log("validé")
+  }
+  */
+});
+
+// ------------------- FIN
+
+
 
 // Vider panier + pop up alert cutom
 let btnPanierSupp = document.getElementById("btnPanier");
