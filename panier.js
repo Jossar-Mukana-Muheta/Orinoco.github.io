@@ -277,3 +277,8 @@ btnPanierSupp.addEventListener("click", function (e) {
 
 // navigation responsive et onglet nombre de produit sur onglet shopping
 (window.onload = responsiveNav()), (window.onload = shoppingIconNav());
+
+
+export {
+  validName
+}
