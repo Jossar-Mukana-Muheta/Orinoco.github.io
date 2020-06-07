@@ -190,6 +190,9 @@ const validName = () => {
   } else if(!/^[a-zA-Z ]+$/.test(formulaire["city"].value)) {
     erreurText.innerHTML = "Veuillez n'utiliser que des lettres";
     formulaire["city"].focus();
+  } else if(!/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(formulaire["email"].value)){
+    erreurText.innerHTML = "Veuillez entrer une addresse mail valide";
+    formulaire["email"].focus();
   }else{
     postData();
   }
