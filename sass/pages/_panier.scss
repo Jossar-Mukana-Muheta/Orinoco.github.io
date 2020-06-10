@@ -14,14 +14,14 @@
   #titre_panier {
     display: flex;
     justify-content: space-between;
-    margin-inline-start: 5px;
-    margin-inline-end: 5px;
+    margin-left: 5px;
+    margin-right: 5px;
     align-items: baseline;
     border-bottom: solid 1px lightgray;
 
     @include desktop {
-      margin-inline-start: 10%;
-      margin-inline-end: 10%;
+      margin-left: 10%;
+      margin-right: 10%;
     }
 
     h2 {
@@ -33,13 +33,13 @@
   .panierProduit {
     display: flex;
     justify-content: space-between;
-    margin-inline-start: 5px;
-    margin-inline-end: 5px;
+    margin-left: 5px;
+    margin-right: 5px;
     border-bottom: solid 1px lightgray;
 
     @include desktop {
-      margin-inline-start: 10%;
-      margin-inline-end: 10%;
+      margin-left: 10%;
+      margin-right: 10%;
       align-items: center;
     }
 
@@ -114,7 +114,7 @@
     text-align: right !important;
 
     @include desktop {
-      margin-inline-end: 10%;
+      margin-right: 10%;
     }
 
     #pluriel,
@@ -126,12 +126,12 @@
   #formulaire_container {
     margin-top: 50px;
     margin-bottom: 20px;
-    margin-inline-start: 5px;
-    margin-inline-end: 5px;
+    margin-left: 5px;
+    margin-right: 5px;
 
     @include desktop {
-      margin-inline-start: 10%;
-      margin-inline-end: 10%;
+      margin-left: 10%;
+      margin-right: 10%;
     }
   }
 
@@ -140,7 +140,7 @@
     color: #0066c0;
 
     font-family: sans-serif;
-    text-decoration: dashed solid 1px blink;
+    text-decoration: dashed blink;
     border-bottom: gray 1px solid;
   }
 

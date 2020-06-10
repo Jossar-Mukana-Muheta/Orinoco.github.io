@@ -359,7 +359,6 @@ footer .social {
   height: 150px;
   width: inherit;
   padding: 5px;
-  scale: 1;
   transform: scale(1);
   transition: all 700ms ease-in-out;
   z-index: 3;
@@ -388,7 +387,7 @@ footer .social {
 }
 .container_page.home article .presentation {
   color: black;
-  margin-block-start: 0em;
+  margin-left: 0em;
 }
 .container_page.home aside {
   min-width: 30%;
@@ -524,15 +523,15 @@ footer .social {
 .container_page.panier #titre_panier {
   display: flex;
   justify-content: space-between;
-  margin-inline-start: 5px;
-  margin-inline-end: 5px;
+  margin-left: 5px;
+  margin-right: 5px;
   align-items: baseline;
   border-bottom: solid 1px lightgray;
 }
 @media screen and (min-width: 601px) {
   .container_page.panier #titre_panier {
-    margin-inline-start: 10%;
-    margin-inline-end: 10%;
+    margin-left: 10%;
+    margin-right: 10%;
   }
 }
 .container_page.panier #titre_panier h2 {
@@ -542,14 +541,14 @@ footer .social {
 .container_page.panier .panierProduit {
   display: flex;
   justify-content: space-between;
-  margin-inline-start: 5px;
-  margin-inline-end: 5px;
+  margin-left: 5px;
+  margin-right: 5px;
   border-bottom: solid 1px lightgray;
 }
 @media screen and (min-width: 601px) {
   .container_page.panier .panierProduit {
-    margin-inline-start: 10%;
-    margin-inline-end: 10%;
+    margin-left: 10%;
+    margin-right: 10%;
     align-items: center;
   }
 }
@@ -614,7 +613,7 @@ footer .social {
 }
 @media screen and (min-width: 601px) {
   .container_page.panier #totalPanier {
-    margin-inline-end: 10%;
+    margin-right: 10%;
   }
 }
 .container_page.panier #totalPanier #pluriel,
@@ -624,20 +623,20 @@ footer .social {
 .container_page.panier #formulaire_container {
   margin-top: 50px;
   margin-bottom: 20px;
-  margin-inline-start: 5px;
-  margin-inline-end: 5px;
+  margin-left: 5px;
+  margin-right: 5px;
 }
 @media screen and (min-width: 601px) {
   .container_page.panier #formulaire_container {
-    margin-inline-start: 10%;
-    margin-inline-end: 10%;
+    margin-left: 10%;
+    margin-right: 10%;
   }
 }
 .container_page.panier #formulaire_titre {
   text-align: left;
   color: #0066c0;
   font-family: sans-serif;
-  text-decoration: dashed solid 1px blink;
+  text-decoration: dashed blink;
   border-bottom: gray 1px solid;
 }
 .container_page.panier label {

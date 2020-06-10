@@ -54,7 +54,7 @@
       height: 150px;
       width: inherit;
       padding: 5px;
-      scale: 1;
+      
       transform: scale(1);
       transition: all 700ms ease-in-out;
       z-index: 3;
@@ -85,7 +85,7 @@
     }
     .presentation {
       color: $colour-accent;
-      margin-block-start: 0em;
+      margin-left: 0em;
     }
   }
 
