@@ -33,7 +33,7 @@ function getProduitID() {
             const optionList = responseText.lenses;
 
             let titreProduit = document.getElementById("titre_produit");
-            let imgProduitChoisit = document.getElementById("produit_choisit");
+            let imgProduitChoisit = document.getElementById("imgProduit");
             let descriptionProduitChoisit = document.getElementById("description");
             let prixProduitChoisit = document.getElementById("prix");
             let lentille = document.getElementById("lentille-select");
@@ -47,7 +47,12 @@ function getProduitID() {
                 option.innerHTML = optionTableau[i];
             }
 
-            imgProduitChoisit.setAttribute("src", image);
+            let imgSource = document.createElement('img')
+            
+            imgProduitChoisit.appendChild(imgSource)
+            imgSource.setAttribute('id','produit_choisit')
+            imgSource.setAttribute('alt', 'appareil photo')
+            imgSource.setAttribute("src", image);
             prixProduitChoisit.innerHTML = prix + " €";
             descriptionProduitChoisit.innerHTML = description;
             titreProduit.innerHTML = titre;
@@ -74,7 +79,7 @@ let quantiteChoiceValue = "1";
 
 optionChoice.addEventListener("change", function (e) {
     optionChoiceValue = e.target.value;
-    if (optionChoiceValue != "ko") {
+    if (optionChoiceValue != "") {
         btnValidation.removeAttribute("disabled");
     } else {
         btnValidation.setAttribute("disabled", "");
@@ -86,7 +91,10 @@ quantiteChoice.addEventListener("change", function (e) {
 });
 
 // Stockage quantité + option dans local storage
+
+
 btnValidation.addEventListener("click", function (e) {
+    
     if (localStorage.getItem('obj')) {
 
         console.log(localStorage.getItem('obj'))
@@ -106,10 +114,10 @@ btnValidation.addEventListener("click", function (e) {
         let objString = JSON.stringify(objJson);
         localStorage.setItem("obj", objString);
 
+        let btnlink = document.getElementById('btnLink')
 
 
-
-        btnValidation.setAttribute("href", "panier.html");
+        btnlink.setAttribute("href", "panier.html");
 
 
     } else {

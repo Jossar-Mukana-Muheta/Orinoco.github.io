@@ -22,7 +22,7 @@
       <nav>
         <div class="nav-wrapper">
           <a href="index.html" class="brand-logo"><img id="logo" src="images/logo.png" alt="logo" /></a>
-          <a href="#" data-target="mobile-demo" class="sidenav-trigger"><img src="images/menu-black-18dp.svg" /></a>
+          <a href="#" data-target="mobile-demo" class="sidenav-trigger"><img src="images/menu-black-18dp.svg" alt="hamburger-menu" /></a>
 
           <ul class="right hide-on-med-and-down">
             <li><a href="index.html">Accueil</a></li>
@@ -54,7 +54,10 @@
     <section id="produits_page">
       <div id="produits_page__option">
         <h2 id="titre_produit"></h2>
-        <img id="produit_choisit" src="" alt="" />
+        <div id="imgProduit">
+
+        </div>
+        
         <p id="description"></p>
         <p id="prix"></p>
       </div>
@@ -63,18 +66,22 @@
         <div id="option">
           <label for="lentille-select">Votre option :</label>
           <select name="lentille" id="lentille-select" required>
-            <option value="ko">-- Choissisez une lentille --</option>
+            <option value="">-- Choissisez une lentille --</option>
           </select>
         </div>
 
-        <div id="quantite">
-          <label for="tentacles">Quantités :</label>
+        <div>
+          <label >Quantités :</label>
           <input value="1" type="number" id="quantite" name="tentacles" min="1" max="100" required />
         </div>
 
         <div id="ajout_panier">
-          <a disabled class="waves-effect waves-light btn" id="btnPanier"><i class="material-icons right"></i>Ajouter
-            au panier</a>
+          <a id="btnLink">
+            <button disabled class="waves-effect waves-light btn" id="btnPanier">
+              Ajouter au panier
+          </button>
+          </a>
+        
         </div>
       </div>
     </section>

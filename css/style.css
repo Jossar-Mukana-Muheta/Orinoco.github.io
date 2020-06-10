@@ -482,6 +482,12 @@ footer .social {
   border-bottom: lightgray solid 1px;
   padding-bottom: 6px;
 }
+.container_page.produits #produits_page #produits_page__option #imgProduit {
+  text-align: center;
+}
+.container_page.produits #produits_page #btnLink {
+  color: white !important;
+}
 .container_page.produits #produits_page .option_produit label {
   color: #c13c27;
 }

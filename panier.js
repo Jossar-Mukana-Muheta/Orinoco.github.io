@@ -217,23 +217,7 @@ formulaire.addEventListener("submit", function (e) {
     }
   }
 
-  /*
-  let mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
   
-   
-  
-
-  
-
-}
-  if(erreurmessage){
-    e.preventDefault()
-    return false
-    
-  }else{
-    console.log("validé")
-  }
-  */
 });
 
 // ------------------- FIN
