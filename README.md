@@ -7,4 +7,5 @@ Créer un plan de test pour une application
 -----------------
 Lancer serveur node 
 
+npm install 
 ---- node server -----------
